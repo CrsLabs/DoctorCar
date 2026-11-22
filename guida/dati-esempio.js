@@ -1,6 +1,14 @@
 // Dati d'esempio realistici per le schermate della guida (due auto di una famiglia, due anni di storia).
 // Le date sono calcolate rispetto a oggi, così le scadenze risultano sempre «in arrivo», «in regola» o «scadute».
-module.exports = function datiEsempio(oggi = new Date()) {
+const INGLESE = {
+  'Golf di Marco': "Marco's Golf", 'Patente di Anna': "Anna's licence", 'Kit distribuzione e pompa acqua': 'Timing kit and water pump',
+  'Tagliando annuale': 'Annual service', 'Tagliando con candele': 'Service with spark plugs', 'Lampadina H4': 'H4 bulb',
+  'Olio 5W-30 VW 507': 'Oil 5W-30 VW 507', 'Olio 5W-40': 'Oil 5W-40', 'Cassetto degli attrezzi': 'Tool drawer', 'Scaffale in alto': 'Top shelf',
+  'Divieto di sosta': 'No parking zone', 'Autofficina Rossi': 'Rossi Garage', 'Centro revisioni Lario': 'Lario MOT centre', 'Elettrauto Verdi': 'Verdi auto electrics',
+  'Gommista Bianchi': 'Bianchi Tyres', 'Officina VW Como': 'VW Service Como', 'Rumore dalla ruota davanti a destra quando freno': 'Noise from the front right wheel when braking',
+  "Spia dell'airbag accesa ogni tanto": 'Airbag warning light comes on now and then',
+};
+module.exports = function datiEsempio(oggi = new Date(), lingua = 'it') {
   const g = n => { const d = new Date(oggi); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
   const dev = 'a1b2c3d4e5f6'; let k = 0;
   const id = p => p + (++k).toString(36).padStart(4, '0');
@@ -67,11 +75,14 @@ module.exports = function datiEsempio(oggi = new Date()) {
     r({ veicolo: 'panda01', nome: 'Olio 5W-40', quantita: 1, unita: 'litri', minimo: 1, voce: 'olio', prezzo: 8.9, note: 'Scaffale in alto' }),
     r({ veicolo: 'panda01', nome: 'Lampadina H4', quantita: 2, unita: 'pezzi', prezzo: 6.5, note: 'Cassetto degli attrezzi' }),
     r({ veicolo: 'golf01', nome: 'Olio 5W-30 VW 507', quantita: 4, unita: 'litri', minimo: 1, voce: 'olio', prezzo: 11.5, note: 'Scaffale in alto' }),
-    r({ veicolo: 'golf01', nome: 'Spazzole tergicristallo', quantita: 0, unita: 'coppie', voce: 'tergicristalli', prezzo: 24 }),
+    r({ veicolo: 'golf01', nome: 'Spazzole tergicristallo', quantita: 0, unita: 'paia', voce: 'tergicristalli', prezzo: 24 }),
   ];
   const D = { veicoli, interventi, rifornimenti, scadenze, letture, gomme, appunti, scorte };
+  // per la guida in inglese: i testi scritti «da chi usa l'app» in inglese (le parole dell'app le traduce l'app)
+  let testo = JSON.stringify(D);
+  if (lingua === 'en') for (const [it, en] of Object.entries(INGLESE)) testo = testo.split(JSON.stringify(it)).join(JSON.stringify(en));
   return {
-    doctorcar_dati: JSON.stringify(D), doctorcar_dispositivo: dev, doctorcar_primo: '1', doctorcar_chi: 'Anna',
+    doctorcar_dati: testo, doctorcar_dispositivo: dev, doctorcar_primo: '1', doctorcar_chi: 'Anna',
     doctorcar_budget: '250', doctorcar_ultima_copia: String(oggi.getTime() - 5 * 86400000),
   };
 };

@@ -33,5 +33,8 @@ La pagina è scritta in italiano; in inglese i testi mostrati si traducono al vo
 4. L'automazione `.github/workflows/rilascio.yml` di quel ramo controlla l'impronta dell'APK e crea da sola la Release `vX.Y.Z` con i due file.
 Le app installate la trovano da sole entro una settimana (`Aggiornamento.java`: solo https da GitHub, impronta SHA-256, stesso pacchetto, versione più nuova, stessa firma). In alternativa la Release si può sempre creare a mano dal sito, allegando gli stessi due file.
 
-## Guida
-Schermate: `node guida/schermate.js` (dati d'esempio in `guida/dati-esempio.js`). PDF: `node guida/genera-guida.js` e `node guida/genera-guida.js tutorial`.
+## Guida e tutorial
+Quattro PDF: guida e tutorial, in italiano e in inglese (`guida/guida.html`, `guida/tutorial.html`, `guida/guide-en.html`, `guida/tutorial-en.html`, stile comune in `guida/stile-guida.css`). Stesse sei parti in tutti e quattro.
+1. Schermate: dalla pagina dell'app (`www`, server sulla porta 8785) con `node guida/schermate.js` (in `guida/img`) e `node guida/schermate.js en` (in `guida/img-en`, con l'app e i dati d'esempio in inglese).
+2. PDF: `node guida/genera-guida.js` (tutti e quattro; oppure `guida it`, `tutorial en`…). L'indice prende da solo i numeri di pagina: ogni capitolo ha un segno invisibile `§§id§§` che un primo PDF usa per sapere dove cade (serve `pdftotext`).
+A ogni versione con novità visibili si rifanno schermate e PDF e si aggiorna il capitolo «Novità».

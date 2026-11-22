@@ -1241,3 +1241,19 @@ Sostieni DoctorCar => Support DoctorCar
 DoctorCar è gratis, senza pubblicità e senza raccogliere dati. Se ti è utile, puoi offrire un caffè allo sviluppatore su Ko-fi: si apre nel browser, l'app non invia niente. => DoctorCar is free, with no ads and no data collection. If you find it useful, you can buy the developer a coffee on Ko-fi: it opens in the browser, the app sends nothing.
 Non riesco ad aprire il browser. => I can't open the browser.
 Nessun browser => No browser
+
+AGGIUNTE (parcheggio, foglio per l'officina, avvisi in Home)
+Portami lì => Take me there
+Posizione e nota => Location and note
+#:# (tra # min) => #:# (in # min)
+# § (# km) => # § (# km)
+# § (fine del mese). => # § (end of the month).
+Scade il # § (poi # giorni di tolleranza). => Due on # § (then # days of grace).
+Scade il # §. => Due on # §.
+Tra # giorni => In # days
+immatricolata # § => registered # §
+# litro => # litre
+# litri => # litres
+@ (@) => @ (@)
+Spazzole tergicristallo (@). => Wiper blades (@).
+coppie => pairs

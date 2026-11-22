@@ -3,79 +3,65 @@
 <head>
 <meta charset="utf-8">
 <title>DoctorCar – Guida all'uso</title>
-<style>
-  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
-  * { box-sizing: border-box; }
-  body { font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1e293b; font-size: 10.5pt; line-height: 1.5; margin: 0; }
-  h1 { font-size: 22pt; color: #7c2d12; margin: 0 0 4mm; }
-  h2 { font-size: 15pt; color: #7c2d12; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid #f59e0b; break-after: avoid; }
-  h3 { font-size: 11.5pt; margin: 5mm 0 1.5mm; color: #0f172a; break-after: avoid; }
-  p { margin: 0 0 2.5mm; }
-  ul, ol { margin: 0 0 3mm 5mm; padding-left: 4mm; }
-  li { margin-bottom: 1mm; }
-  b, strong { color: #0f172a; }
-  .sezione { break-before: page; }
-  .copertina { height: 255mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(#fff, #fffbeb); }
-  .copertina img.logo { width: 46mm; height: 46mm; border-radius: 10mm; box-shadow: 0 3mm 8mm rgba(0,0,0,.25); }
-  .copertina .titolo { font-size: 34pt; font-weight: 800; margin-top: 10mm; color: #1e293b; }
-  .copertina .titolo span { color: #b45309; }
-  .copertina .sotto { font-size: 15pt; color: #475569; margin-top: 2mm; }
-  .copertina .ver { margin-top: 14mm; font-size: 11pt; color: #64748b; }
-  .indice { column-count: 1; }
-  .indice li { margin-bottom: 1.6mm; }
-  .coppia { display: grid; grid-template-columns: 46mm 1fr; gap: 7mm; margin: 3mm 0 5mm; align-items: start; break-inside: avoid; }
-  .coppia.doppia { grid-template-columns: 46mm 46mm 1fr; }
-  figure { margin: 0; }
-  figure img { width: 100%; border: 1px solid #cbd5e1; border-radius: 4mm; box-shadow: 0 1mm 3mm rgba(0,0,0,.15); display: block; }
-  figcaption { font-size: 8.5pt; color: #64748b; margin-top: 1.5mm; text-align: center; }
-  .nota { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 2.5mm 4mm; margin: 3mm 0; border-radius: 0 2mm 2mm 0; break-inside: avoid; }
-  .attenzione { background: #fef2f2; border-left: 3px solid #e11d48; padding: 2.5mm 4mm; margin: 3mm 0; border-radius: 0 2mm 2mm 0; break-inside: avoid; }
-  .passi { counter-reset: p; list-style: none; margin-left: 0; padding-left: 0; }
-  .passi li { counter-increment: p; position: relative; padding-left: 8mm; margin-bottom: 2mm; }
-  .passi li::before { content: counter(p); position: absolute; left: 0; top: 0.3mm; width: 5.5mm; height: 5.5mm; border-radius: 50%; background: #f59e0b; color: #1e293b; font-weight: 700; font-size: 8.5pt; text-align: center; line-height: 5.5mm; }
-  table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.5pt; }
-  th, td { border: 1px solid #cbd5e1; padding: 1.5mm 2.5mm; text-align: left; vertical-align: top; }
-  th { background: #f1f5f9; }
-  .piccolo { font-size: 8.5pt; color: #64748b; }
-</style>
+<link rel="stylesheet" href="stile-guida.css">
 </head>
 <body>
 
 <div class="copertina">
   <img class="logo" src="../icona/logo-doctorcar-1024.png" alt="">
   <div class="titolo">Doctor<span>Car</span></div>
-  <div class="sotto">L'auto sempre in ordine</div>
-  <div class="sotto" style="margin-top:10mm;font-size:13pt">Guida all'uso</div>
-  <div class="ver">Versione dell'app: {{VERSIONE}} · guida aggiornata il {{DATA}}</div>
+  <div class="motto">L'auto sempre in ordine</div>
+  <div class="tipo">Guida all'uso</div>
+  <div class="tipo-sotto">Tutte le funzioni, spiegate con le schermate dell'app</div>
+  <div class="ver">Versione dell'app {{VERSIONE}} · guida aggiornata il {{DATA}}</div>
 </div>
 
 <div class="sezione">
   <h2>Indice</h2>
-  <ol class="indice">
-    <li><b>Cos'è DoctorCar</b> e la schermata Home</li>
-    <li><b>Primo avvio</b> e i tuoi veicoli</li>
-    <li><b>Interventi</b> e foto delle fatture</li>
-    <li><b>Scadenze</b>: tagliando, revisione, bollo, assicurazione, documenti</li>
-    <li><b>Rifornimenti</b> e consumi</li>
-    <li><b>Spese</b>, budget e previsione</li>
-    <li><b>Gomme</b> e controlli veloci</li>
-    <li><b>Dove ho parcheggiato</b> e sosta a tempo</li>
-    <li><b>Meccanico, ricambi e viaggi</b>: lista per l'officina, ricambi in garage, costo di un viaggio</li>
-    <li><b>Avvisi</b> sul telefono</li>
-    <li><b>Più telefoni</b>: la sincronizzazione</li>
-    <li><b>Copia di sicurezza</b>, tabelle e libretto in PDF</li>
-    <li><b>Impostazioni</b> e aspetto</li>
-    <li><b>Sicurezza e privacy</b></li>
-    <li><b>Se qualcosa non va</b></li>
-    <li><b>Novità</b>, versione per versione</li>
-  </ol>
-  <div class="nota">Questa guida descrive tutte le funzioni. Per fare una cosa precisa, passo per passo, c'è il <b>Tutorial</b>.</div>
+  <div class="indice">
+    <div class="parte">Parte 1 · Iniziare</div>
+    <div class="voce"><span class="t">1 · Cos'è DoctorCar</span><span class="punti"></span><span class="pag" data-pag="c1">00</span></div>
+    <div class="voce"><span class="t">2 · Installare e aggiornare l'app</span><span class="punti"></span><span class="pag" data-pag="c2">00</span></div>
+    <div class="voce"><span class="t">3 · Primo avvio e i tuoi veicoli</span><span class="punti"></span><span class="pag" data-pag="c3">00</span></div>
+    <div class="voce"><span class="t">4 · La Home e la ricerca</span><span class="punti"></span><span class="pag" data-pag="c4">00</span></div>
+    <div class="parte">Parte 2 · Manutenzione</div>
+    <div class="voce"><span class="t">5 · Interventi e foto delle fatture</span><span class="punti"></span><span class="pag" data-pag="c5">00</span></div>
+    <div class="voce"><span class="t">6 · Scadenze, documenti e permessi</span><span class="punti"></span><span class="pag" data-pag="c6">00</span></div>
+    <div class="voce"><span class="t">7 · Gomme e controlli veloci</span><span class="punti"></span><span class="pag" data-pag="c7">00</span></div>
+    <div class="voce"><span class="t">8 · Meccanico, ricambi e Magazzino</span><span class="punti"></span><span class="pag" data-pag="c8">00</span></div>
+    <div class="parte">Parte 3 · Carburante e spese</div>
+    <div class="voce"><span class="t">9 · Rifornimenti e consumi</span><span class="punti"></span><span class="pag" data-pag="c9">00</span></div>
+    <div class="voce"><span class="t">10 · Quanto costa un viaggio</span><span class="punti"></span><span class="pag" data-pag="c10">00</span></div>
+    <div class="voce"><span class="t">11 · Spese, budget e previsione</span><span class="punti"></span><span class="pag" data-pag="c11">00</span></div>
+    <div class="parte">Parte 4 · Ogni giorno</div>
+    <div class="voce"><span class="t">12 · Dove ho parcheggiato</span><span class="punti"></span><span class="pag" data-pag="c12">00</span></div>
+    <div class="voce"><span class="t">13 · Avvisi, widget e scorciatoie</span><span class="punti"></span><span class="pag" data-pag="c13">00</span></div>
+    <div class="parte">Parte 5 · I tuoi dati</div>
+    <div class="voce"><span class="t">14 · Più telefoni: la sincronizzazione</span><span class="punti"></span><span class="pag" data-pag="c14">00</span></div>
+    <div class="voce"><span class="t">15 · Copia di sicurezza, tabelle e libretto</span><span class="punti"></span><span class="pag" data-pag="c15">00</span></div>
+    <div class="voce"><span class="t">16 · Sicurezza e privacy</span><span class="punti"></span><span class="pag" data-pag="c16">00</span></div>
+    <div class="parte">Parte 6 · Impostazioni e aiuto</div>
+    <div class="voce"><span class="t">17 · Impostazioni: aspetto, lingua, aggiornamenti</span><span class="punti"></span><span class="pag" data-pag="c17">00</span></div>
+    <div class="voce"><span class="t">18 · Se qualcosa non va</span><span class="punti"></span><span class="pag" data-pag="c18">00</span></div>
+    <div class="voce"><span class="t">19 · Contatti, segnalazioni e sostegno</span><span class="punti"></span><span class="pag" data-pag="c19">00</span></div>
+    <div class="voce"><span class="t">20 · Novità, versione per versione</span><span class="punti"></span><span class="pag" data-pag="c20">00</span></div>
+  </div>
+  <div class="come-leggere">
+    <div><b>Questa guida</b> descrive tutte le funzioni, una sezione dell'app per capitolo. Leggila dall'inizio la prima volta, poi usala come consultazione.</div>
+    <div><b>Il Tutorial</b> (un altro PDF) spiega invece <b>una cosa per volta</b>, in pochi passi: «come si segna un pieno», «come si collega un secondo telefono»…</div>
+  </div>
 </div>
 
-<div class="sezione">
-  <h2>1 · Cos'è DoctorCar</h2>
+<!-- ============ PARTE 1 ============ -->
+<div class="apertura"><span class="segno">§§p1§§</span>
+  <div class="n">Parte 1</div><div class="nome">Iniziare</div>
+  <ul><li>Cos'è DoctorCar e a chi è utile</li><li>Installare l'app e ricevere gli aggiornamenti</li><li>Aggiungere la prima auto</li><li>Muoversi nella Home e trovare tutto con la ricerca</li></ul>
+</div>
+
+<div class="sezione"><span class="segno">§§c1§§</span>
+  <h2><span class="num">1</span>Cos'è DoctorCar</h2>
   <p>DoctorCar è il <b>libretto di manutenzione dell'auto</b> sul telefono. Tiene in ordine gli <b>interventi</b> (tagliandi, freni, gomme…), le <b>scadenze</b> (revisione, bollo, assicurazione, patente…), i <b>rifornimenti</b> con i consumi veri e tutte le <b>spese</b>. Ti avvisa prima che qualcosa scada e ti ricorda dove hai parcheggiato.</p>
-  <p>Funziona <b>senza internet</b>: i dati restano sul tuo telefono, senza account e senza cloud. Se in famiglia usate più telefoni, DoctorCar li tiene <b>allineati</b> da solo nella Wi‑Fi di casa. Esiste anche come pagina da aprire sul computer.</p>
+  <p>Funziona <b>senza internet</b>: i dati restano sul tuo telefono, senza account e senza cloud. Se in famiglia usate più telefoni, DoctorCar li tiene <b>allineati</b> da solo nella Wi‑Fi di casa. È in <b>italiano e in inglese</b>, ed esiste anche come pagina da aprire sul computer.</p>
   <h3>Per chi è utile</h3>
   <ul>
     <li>Chi vuole <b>non dimenticare</b> revisione, bollo, assicurazione e tagliando (e non pagare more o multe).</li>
@@ -83,29 +69,41 @@
     <li>Le <b>famiglie con più auto</b> o più guidatori: ognuno segna dal suo telefono, i dati sono uguali per tutti.</li>
     <li>Chi deve <b>vendere l'auto</b>: il libretto in PDF mostra tutta la manutenzione fatta, con date e km.</li>
   </ul>
-  <h3>La Home</h3>
-  <div class="coppia doppia">
-    <figure><img src="img/01-home.png" alt=""><figcaption>Home: azione consigliata, avvisi, parcheggio</figcaption></figure>
-    <figure><img src="img/02-home-sotto.png" alt=""><figcaption>Più in basso: ultimi interventi e auto</figcaption></figure>
-    <div>
-      <p>In cima c'è la <b>ricerca</b> («Cerca nell'app…») e tre riquadri <b>a colpo d'occhio</b>: scadenze (scadute o in arrivo), quanto hai speso questo mese rispetto al budget, i km o i veicoli. Toccandoli si apre la sezione.</p>
-      <p>Poi <b>una sola azione consigliata</b> (per esempio «Completa una scadenza») con il suo tasto, il <b>parcheggio</b>, il blocco <b>Da controllare</b> quando qualcosa non torna (km più bassi di prima, consumo anomalo, budget superato, copia di sicurezza vecchia), le <b>scadenze vicine</b>, gli <b>ultimi interventi</b> e le tue auto con km, consumo e spese.</p>
-      <p>In basso, solo in Home, la barra <b>+ Intervento · + Pieno · Km · Spesa</b>; più giù le sezioni: Home, Interventi, Scadenze, Pieno, Spese, Veicoli.</p>
-    </div>
-  </div>
-  <h3>Cercare nell'app</h3>
+  <h3>Le sezioni dell'app</h3>
+  <table>
+    <tr><th>Sezione</th><th>Cosa trovi</th><th>Capitolo</th></tr>
+    <tr><td><b>Home</b></td><td>Il riassunto: cosa fare adesso, avvisi, parcheggio, ricerca</td><td>4</td></tr>
+    <tr><td><b>Interventi</b></td><td>Il registro di tutto quello che è stato fatto all'auto</td><td>5</td></tr>
+    <tr><td><b>Scadenze</b></td><td>Tagliando, revisione, bollo, assicurazione, documenti</td><td>6</td></tr>
+    <tr><td><b>Pieno</b></td><td>Rifornimenti, consumi, costo di un viaggio</td><td>9 e 10</td></tr>
+    <tr><td><b>Spese</b></td><td>Quanto spendi, budget del mese, previsione</td><td>11</td></tr>
+    <tr><td><b>Veicoli</b></td><td>Le tue auto, la scheda di ognuna, il Magazzino dei ricambi</td><td>3 e 8</td></tr>
+    <tr><td><b>Impostazioni</b> (ingranaggio in alto)</td><td>Aspetto, lingua, avvisi, sicurezza, dati, aggiornamenti</td><td>17</td></tr>
+  </table>
+</div>
+
+<div class="sezione"><span class="segno">§§c2§§</span>
+  <h2><span class="num">2</span>Installare e aggiornare l'app</h2>
+  <p>DoctorCar per Android si scarica gratis da GitHub, dalla pagina delle versioni pubblicate: <b>github.com/CrsLabs/DoctorCar/releases</b>. Serve <b>Android 10 o più recente</b>.</p>
+  <ol class="passi">
+    <li>Dal telefono apri la pagina e scarica il file <b>DoctorCar-….apk</b> dell'ultima versione.</li>
+    <li>Apri il file scaricato. La prima volta Android chiede di permettere l'installazione dal browser (o dall'app File): accendi l'interruttore e torna indietro.</li>
+    <li>Tocca <b>Installa</b>. Fatto: DoctorCar è tra le tue app.</li>
+  </ol>
+  <h3>Gli aggiornamenti arrivano da soli</h3>
   <div class="coppia">
-    <figure><img src="img/17-ricerca.png" alt=""><figcaption>La ricerca: «gomme»</figcaption></figure>
+    <figure><img src="img/23-aggiornamenti.png" alt=""><figcaption>Impostazioni → Aggiornamenti</figcaption></figure>
     <div>
-      <p>Scrivi nella ricerca in Home quello che ti serve, con parole tue: «gomme», «bollo», «backup», «multa», «tema scuro», la targa o il nome di un'officina. Trovi funzioni, impostazioni, auto, scadenze e interventi; un tocco ti porta lì.</p>
-      <p>Non servono accenti né la parola intera: «revis» trova la revisione.</p>
+      <p>Una volta a settimana DoctorCar controlla se c'è una versione nuova. Se c'è, ti mostra «<b>È uscita DoctorCar…</b>» con le novità e i tasti <b>Aggiorna</b> e <b>Più tardi</b>. Con Aggiorna l'app scarica la versione nuova e Android chiede la conferma: <b>i tuoi dati restano tutti</b>.</p>
+      <p>In <b>Impostazioni → Aggiornamenti</b> puoi spegnere il controllo settimanale o fare subito <b>Controlla adesso</b>.</p>
+      <div class="nota">L'aggiornamento si installa solo se è firmato come l'app che hai e se è proprio il file pubblicato (DoctorCar controlla la sua «impronta»). Il controllo legge soltanto da GitHub: nessun tuo dato esce dal telefono.</div>
     </div>
   </div>
 </div>
 
-<div class="sezione">
-  <h2>2 · Primo avvio e veicoli</h2>
-  <p>Al primo avvio DoctorCar propone <b>Aggiungi la tua auto</b>. Puoi aggiungerne quante vuoi (auto o moto) dalla sezione <b>Veicoli</b>.</p>
+<div class="sezione"><span class="segno">§§c3§§</span>
+  <h2><span class="num">3</span>Primo avvio e i tuoi veicoli</h2>
+  <p>Al primo avvio DoctorCar propone <b>Aggiungi la tua auto</b>. Puoi aggiungerne quante vuoi (auto, moto, furgoni) dalla sezione <b>Veicoli</b>.</p>
   <div class="coppia">
     <figure><img src="img/12-nuovo-veicolo.png" alt=""><figcaption>Nuovo veicolo</figcaption></figure>
     <div>
@@ -116,16 +114,43 @@
   </div>
   <div class="coppia doppia">
     <figure><img src="img/07-veicoli.png" alt=""><figcaption>Veicoli</figcaption></figure>
-    <figure><img src="img/08-scheda-veicolo.png" alt=""><figcaption>Scheda del veicolo</figcaption></figure>
+    <figure><img src="img/08-scheda-veicolo.png" alt=""><figcaption>La scheda del veicolo</figcaption></figure>
     <div>
-      <p>Toccando un veicolo si apre la sua <b>scheda</b>: km attuali, km l'anno, consumo medio, spese registrate, il <b>grafico del consumo</b> (in rosso i pieni anomali), le <b>gomme</b>, le scadenze e gli ultimi interventi.</p>
-      <p>Dalla scheda: <b>Intervento</b>, <b>Scadenza</b>, <b>Treno di gomme</b>, <b>Controlli veloci</b>, <b>Libretto in PDF</b>, <b>Per l'officina</b>, <b>Modifica il veicolo</b>, <b>Elimina il veicolo</b>.</p>
+      <p>Toccando un veicolo si apre la sua <b>scheda</b>: km attuali, km l'anno, consumo medio, spese registrate, il <b>grafico del consumo</b> (in rosso i pieni anomali), le <b>gomme</b>, le cose <b>da far vedere al meccanico</b>, i <b>ricambi in garage</b>, le scadenze e gli ultimi interventi.</p>
+      <p>Dalla scheda: <b>Intervento</b>, <b>Scadenza</b>, <b>Treno di gomme</b>, <b>Controlli veloci</b>, <b>Ricambio</b>, <b>Libretto in PDF</b>, <b>Per l'officina</b>, <b>Modifica il veicolo</b>, <b>Elimina il veicolo</b>.</p>
     </div>
   </div>
 </div>
 
-<div class="sezione">
-  <h2>3 · Interventi</h2>
+<div class="sezione"><span class="segno">§§c4§§</span>
+  <h2><span class="num">4</span>La Home e la ricerca</h2>
+  <div class="coppia doppia">
+    <figure><img src="img/01-home.png" alt=""><figcaption>Home: azione consigliata, parcheggio, avvisi</figcaption></figure>
+    <figure><img src="img/02-home-sotto.png" alt=""><figcaption>Più in basso: scadenze, interventi, auto</figcaption></figure>
+    <div>
+      <p>In cima c'è la <b>ricerca</b> e tre riquadri <b>a colpo d'occhio</b>: scadenze in arrivo, quanto hai speso questo mese rispetto al budget, i veicoli. Toccandoli si apre la sezione.</p>
+      <p>Poi <b>una sola azione consigliata</b> (per esempio «Completa una scadenza»), il <b>parcheggio</b>, il blocco <b>Da controllare</b> quando qualcosa non torna (km più bassi di prima, consumo anomalo, budget superato, ricambi da ricomprare, copia di sicurezza vecchia), le <b>scadenze vicine</b>, gli <b>ultimi interventi</b> e le tue auto.</p>
+      <p>In basso, solo in Home, la barra <b>+ Intervento · + Pieno · Km · Spesa</b>; sotto, le sezioni dell'app.</p>
+    </div>
+  </div>
+  <h3>Cercare nell'app</h3>
+  <div class="coppia">
+    <figure><img src="img/17-ricerca.png" alt=""><figcaption>La ricerca: «gomme»</figcaption></figure>
+    <div>
+      <p>Scrivi nella ricerca quello che ti serve, con parole tue: «gomme», «bollo», «backup», «multa», «tema scuro», la targa o il nome di un'officina. Trovi funzioni, impostazioni, auto, scadenze e interventi; un tocco ti porta lì.</p>
+      <p>Non servono accenti né la parola intera: «revis» trova la revisione. Con l'app in inglese puoi cercare anche in inglese.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PARTE 2 ============ -->
+<div class="apertura"><span class="segno">§§p2§§</span>
+  <div class="n">Parte 2</div><div class="nome">Manutenzione</div>
+  <ul><li>Il registro degli interventi, con le foto delle fatture</li><li>Le scadenze: tagliando, revisione, bollo, assicurazione, documenti</li><li>Gomme e controlli veloci</li><li>La lista per il meccanico e i ricambi in garage</li></ul>
+</div>
+
+<div class="sezione"><span class="segno">§§c5§§</span>
+  <h2><span class="num">5</span>Interventi e foto delle fatture</h2>
   <div class="coppia doppia">
     <figure><img src="img/03-interventi.png" alt=""><figcaption>Il registro degli interventi</figcaption></figure>
     <figure><img src="img/09-nuovo-intervento.png" alt=""><figcaption>Nuovo intervento</figcaption></figure>
@@ -136,12 +161,12 @@
     </div>
   </div>
   <h3>Foto delle fatture</h3>
-  <p>Ogni intervento può avere fino a <b>12 foto</b>: fattura, scontrino, preventivo dell'officina. Nell'app tocchi <b>Scatta foto</b> o <b>Scegli foto</b>. Le foto vengono ridotte, restano sul telefono, si guardano a schermo intero con lo zoom e viaggiano (cifrate) sugli altri telefoni collegati e nella copia di sicurezza.</p>
-  <div class="nota">Segnando un intervento, la <b>scadenza corrispondente si aggiorna da sola</b>: dopo il tagliando, il prossimo tagliando riparte da quella data e da quei km.</div>
+  <p>Ogni intervento può avere fino a <b>12 foto</b>: fattura, scontrino, preventivo. Tocca <b>Scatta foto</b> o <b>Scegli foto</b>. Le foto vengono ridotte, restano sul telefono, si guardano a schermo intero con lo zoom e viaggiano (cifrate) sugli altri telefoni collegati e nella copia di sicurezza.</p>
+  <div class="nota">Segnando un intervento, la <b>scadenza corrispondente si aggiorna da sola</b>: dopo il tagliando, il prossimo tagliando riparte da quella data e da quei km. Se ci sono cose della lista per il meccanico o ricambi di quel lavoro, DoctorCar chiede «<b>Già che ci sei</b>» (capitolo 8).</div>
 </div>
 
-<div class="sezione">
-  <h2>4 · Scadenze</h2>
+<div class="sezione"><span class="segno">§§c6§§</span>
+  <h2><span class="num">6</span>Scadenze, documenti e permessi</h2>
   <div class="coppia doppia">
     <figure><img src="img/04-scadenze.png" alt=""><figcaption>Le scadenze, dalla più vicina</figcaption></figure>
     <figure><img src="img/11-scadenza.png" alt=""><figcaption>Una scadenza</figcaption></figure>
@@ -158,24 +183,70 @@
     <li><b>Assicurazione</b>: dopo la scadenza ricorda i <b>15 giorni di tolleranza</b> e avvisa l'ultimo giorno di copertura.</li>
   </ul>
   <h3>Documenti e permessi</h3>
-  <p>In cima alla sezione Scadenze, con un tocco aggiungi: <b>patente</b>, <b>carta carburante</b>, <b>Telepass</b> (tuoi) e <b>garanzia</b>, <b>permesso ZTL</b> (dell'auto). Quando li segni come fatti, DoctorCar chiede la nuova data. La <b>multa</b> da pagare diventa una scadenza che non si ripete.</p>
+  <p>In cima alla sezione Scadenze, con un tocco aggiungi: <b>patente</b>, <b>carta carburante</b>, <b>Telepass</b> (tuoi) e <b>garanzia</b>, <b>permesso ZTL</b> (dell'auto). Quando li segni come fatti, DoctorCar chiede la nuova data. La <b>multa</b> da pagare diventa una scadenza che non si ripete (capitolo 11).</p>
 </div>
 
-<div class="sezione">
-  <h2>5 · Rifornimenti e consumi</h2>
+<div class="sezione"><span class="segno">§§c7§§</span>
+  <h2><span class="num">7</span>Gomme e controlli veloci</h2>
+  <div class="coppia doppia">
+    <figure><img src="img/08-scheda-veicolo.png" alt=""><figcaption>Le gomme nella scheda</figcaption></figure>
+    <figure><img src="img/13-controlli.png" alt=""><figcaption>Controlli veloci</figcaption></figure>
+    <div>
+      <p><b>Storico delle gomme</b>: treni estivi, invernali o 4 stagioni, con misura, marca e <b>DOT</b> (settimana e anno di fabbricazione). I km si contano da soli, l'età viene dal DOT e DoctorCar avvisa oltre i 6 anni o i km consigliati.</p>
+      <p>Segnando il cambio stagionale («Monta le gomme invernali», «Togli le gomme invernali») le gomme <b>si scambiano da sole</b>: quelle montate vanno in garage e viceversa.</p>
+      <p>I <b>Controlli veloci</b> (pressione, battistrada, olio, refrigerante, lavavetri, luci, tergicristalli) si fanno in 2 minuti, una volta al mese: con gli avvisi accesi DoctorCar li ricorda il 15 e dalla notifica rispondi «Tutto a posto». Quello che scrivi in «Qualcosa da sistemare?» finisce nella lista per il meccanico.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sezione"><span class="segno">§§c8§§</span>
+  <h2><span class="num">8</span>Meccanico, ricambi e Magazzino</h2>
+  <div class="coppia doppia">
+    <figure><img src="img/18-meccanico-ricambi.png" alt=""><figcaption>Lista per il meccanico nella scheda</figcaption></figure>
+    <figure><img src="img/19-ricambi.png" alt=""><figcaption>Il Magazzino dei ricambi</figcaption></figure>
+    <div>
+      <p><b>Da far vedere al meccanico</b>: nella scheda dell'auto segni un rumore, una spia, una cosa strana con «Cosa da far vedere». La lista va nel foglio <b>Per l'officina</b>, così il meccanico la riceve insieme alla storia dell'auto. Toccando una riga la segni «Sistemato» o la togli.</p>
+      <p><b>Ricambi in garage</b>: ogni ricambio (olio, lampadine, spazzole…) appartiene a un'auto. Scegli <b>come si conta</b> (pezzi, litri, kg, paia, flaconi…), con <b>−</b> e <b>+</b> aggiorni la quantità e, se scrivi «Avvisami quando ne restano», sotto quel numero compare <b>Da ricomprare</b> e un avviso in Home. Puoi segnare anche il <b>prezzo per unità</b> e <b>dove si trova</b>.</p>
+      <p><b>Magazzino</b> (in Veicoli): tutti i ricambi insieme, filtrati per auto, con quanti sono da ricomprare e quanto valgono. <b>Lista della spesa</b> prepara il testo con quello che manca, da mandare o copiare.</p>
+    </div>
+  </div>
+  <div class="nota"><b>Già che ci sei</b>: dopo aver segnato un intervento, DoctorCar chiede quali cose della lista sono state sistemate e quanti ricambi di quell'auto, collegati a quel lavoro, hai usato; se vuoi aggiunge il loro costo all'intervento. Se non c'è niente da chiedere, non chiede.</div>
+</div>
+
+<!-- ============ PARTE 3 ============ -->
+<div class="apertura"><span class="segno">§§p3§§</span>
+  <div class="n">Parte 3</div><div class="nome">Carburante e spese</div>
+  <ul><li>Rifornimenti e consumo vero</li><li>Quanto costa un viaggio, anche a testa</li><li>Spese dell'anno, budget del mese e previsione</li></ul>
+</div>
+
+<div class="sezione"><span class="segno">§§c9§§</span>
+  <h2><span class="num">9</span>Rifornimenti e consumi</h2>
   <div class="coppia doppia">
     <figure><img src="img/05-rifornimenti.png" alt=""><figcaption>Rifornimenti con il consumo</figcaption></figure>
     <figure><img src="img/10-nuovo-rifornimento.png" alt=""><figcaption>Nuovo rifornimento</figcaption></figure>
     <div>
       <p>Ogni rifornimento ha data, km, quantità (litri, kWh o kg), prezzo, importo e «<b>pieno</b>». Di litri, prezzo al litro e importo <b>ne scrivi due: il terzo si calcola</b>. Il prezzo dell'ultimo pieno è già proposto.</p>
-      <p>Fra due pieni DoctorCar calcola il <b>consumo vero</b> (km/l e l/100 km) e il prezzo medio. I pieni con un consumo molto peggiore del solito sono segnalati.</p>
-      <p><b>Aggiorna i km</b> (o «Km» in Home) serve a segnare i chilometri senza fare il pieno: tiene giuste le stime.</p>
+      <p>Fra due pieni DoctorCar calcola il <b>consumo vero</b> e il prezzo medio. I pieni con un consumo molto peggiore del solito sono segnalati.</p>
+      <p><b>Aggiorna i km</b> (o «Km» in Home) serve a segnare i chilometri senza fare il pieno: tiene giuste le stime delle scadenze.</p>
     </div>
   </div>
 </div>
 
-<div class="sezione">
-  <h2>6 · Spese, budget e previsione</h2>
+<div class="sezione"><span class="segno">§§c10§§</span>
+  <h2><span class="num">10</span>Quanto costa un viaggio</h2>
+  <div class="coppia doppia">
+    <figure><img src="img/20-viaggio.png" alt=""><figcaption>Quanto costa il viaggio</figcaption></figure>
+    <figure><img src="img/21-viaggio-risultato.png" alt=""><figcaption>Il risultato, anche a testa</figcaption></figure>
+    <div>
+      <p>In <b>Pieno</b> tocca <b>Quanto costa il viaggio</b> (o cerca «viaggio»). Scrivi i km, quante persone, se è andata e ritorno e i pedaggi.</p>
+      <p>Il <b>consumo</b> è già scritto con quello calcolato dai tuoi pieni; con «<b>Come misuri il consumo</b>» scegli tra <b>km con un litro</b> (km/l) e <b>litri ogni 100 km</b> (l/100 km): il numero si converte da solo e la scelta resta per la volta dopo. Il prezzo è quello dell'ultimo pieno, se non ne scrivi un altro.</p>
+      <p>DoctorCar risponde con il <b>totale</b>, i litri e <b>quanto spende ognuno</b>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sezione"><span class="segno">§§c11§§</span>
+  <h2><span class="num">11</span>Spese, budget e previsione</h2>
   <div class="coppia doppia">
     <figure><img src="img/06-spese.png" alt=""><figcaption>Spese dell'anno, budget, previsione</figcaption></figure>
     <figure><img src="img/14-spesa-veloce.png" alt=""><figcaption>Spesa veloce (qui una multa)</figcaption></figure>
@@ -188,21 +259,14 @@
   </div>
 </div>
 
-<div class="sezione">
-  <h2>7 · Gomme e controlli veloci</h2>
-  <div class="coppia doppia">
-    <figure><img src="img/08-scheda-veicolo.png" alt=""><figcaption>Le gomme nella scheda</figcaption></figure>
-    <figure><img src="img/13-controlli.png" alt=""><figcaption>Controlli veloci</figcaption></figure>
-    <div>
-      <p><b>Storico delle gomme</b>: treni estivi, invernali o 4 stagioni, con misura, marca e <b>DOT</b> (settimana e anno di fabbricazione). I km si contano da soli, l'età viene dal DOT e DoctorCar avvisa oltre i 6 anni o i km consigliati.</p>
-      <p>Segnando il cambio stagionale («Monta le gomme invernali», «Togli le gomme invernali») le gomme <b>si scambiano da sole</b>: quelle montate vanno in garage e viceversa.</p>
-      <p>I <b>Controlli veloci</b> (pressione, battistrada, olio, refrigerante, lavavetri, luci, tergicristalli) si fanno in 2 minuti, una volta al mese: con gli avvisi accesi DoctorCar li ricorda il 15 e dalla notifica rispondi «Tutto a posto».</p>
-    </div>
-  </div>
+<!-- ============ PARTE 4 ============ -->
+<div class="apertura"><span class="segno">§§p4§§</span>
+  <div class="n">Parte 4</div><div class="nome">Ogni giorno</div>
+  <ul><li>Ricordare dove hai parcheggiato, con la sosta a tempo</li><li>Gli avvisi sul telefono, le risposte dalla notifica, widget e scorciatoie</li></ul>
 </div>
 
-<div class="sezione">
-  <h2>8 · Dove ho parcheggiato</h2>
+<div class="sezione"><span class="segno">§§c12§§</span>
+  <h2><span class="num">12</span>Dove ho parcheggiato</h2>
   <div class="coppia">
     <figure><img src="img/01-home.png" alt=""><figcaption>Il parcheggio in Home</figcaption></figure>
     <div>
@@ -213,29 +277,8 @@
   </div>
 </div>
 
-<div class="sezione">
-  <h2>9 · Meccanico, ricambi e viaggi</h2>
-  <div class="coppia doppia">
-    <figure><img src="img/18-meccanico-ricambi.png" alt=""><figcaption>Lista per il meccanico e ricambi nella scheda</figcaption></figure>
-    <figure><img src="img/19-ricambi.png" alt=""><figcaption>Il Magazzino: tutti i ricambi, con la lista della spesa</figcaption></figure>
-    <div>
-      <p><b>Da far vedere al meccanico</b>: nella scheda dell'auto segni un rumore, una spia, una cosa strana con «Cosa da far vedere». Anche quello che scrivi in «Qualcosa da sistemare?» dei controlli veloci finisce qui. La lista va nel foglio <b>Per l'officina</b>, così il meccanico la riceve insieme alla storia dell'auto. Toccando una riga la segni «Sistemato» o la togli.</p>
-      <p><b>Ricambi in garage</b>: ogni ricambio (olio, lampadine, spazzole…) appartiene a un'auto e sta nella sua scheda. Con <b>−</b> e <b>+</b> li conti; se scrivi «Avvisami quando ne restano», sotto quel numero compare <b>Da ricomprare</b> e un avviso in Home. Puoi segnare anche il <b>prezzo per unità</b> e <b>dove si trova</b> (es. «scaffale in garage»).</p>
-      <p><b>Magazzino</b>: in Veicoli tocca <b>Magazzino</b> per vedere tutti i ricambi insieme, filtrarli per auto o per «Da ricomprare» e sapere quanto valgono. <b>Lista della spesa</b> prepara il testo con quello che manca, da mandare o copiare.</p>
-      <p><b>Già che ci sei</b>: dopo aver segnato un intervento, DoctorCar chiede quali cose della lista sono state sistemate e quanti ricambi di quell'auto, collegati a quel lavoro, hai usato. Se non c'è niente da chiedere, non chiede.</p>
-    </div>
-  </div>
-  <div class="coppia doppia">
-    <figure><img src="img/20-viaggio.png" alt=""><figcaption>Quanto costa il viaggio</figcaption></figure>
-    <figure><img src="img/21-viaggio-risultato.png" alt=""><figcaption>Il risultato, anche a testa</figcaption></figure>
-    <div>
-      <p><b>Quanto costa il viaggio</b> (in Pieno, o cercando «viaggio»): scrivi i km, quante persone, se è andata e ritorno e i pedaggi. Consumo e prezzo li prende dai tuoi pieni (puoi cambiarli). Risponde con il totale, i litri e quanto spende ognuno.</p>
-    </div>
-  </div>
-</div>
-
-<div class="sezione">
-  <h2>10 · Avvisi sul telefono</h2>
+<div class="sezione"><span class="segno">§§c13§§</span>
+  <h2><span class="num">13</span>Avvisi, widget e scorciatoie</h2>
   <p>Nell'app Android, DoctorCar manda <b>notifiche</b> prima di tagliando, revisione, bollo, assicurazione e delle altre scadenze, anche con l'app chiusa e dopo il riavvio del telefono.</p>
   <ul>
     <li>Il primo avviso a scelta (<b>30, 14 o 7 giorni prima</b>), poi il giorno prima e il giorno stesso, all'ora che preferisci (8, 9, 12 o 18).</li>
@@ -243,13 +286,19 @@
     <li>Per le scadenze a chilometri l'avviso segue la data stimata dal tuo uso dell'auto.</li>
     <li><b>Tasti nella notifica</b>: «Fatto oggi» (registra l'intervento) e «Rimanda di una settimana».</li>
     <li>Il 1° del mese «<b>Quanti km ha l'auto?</b>» con risposta direttamente dalla notifica; il 15 i controlli veloci.</li>
-    <li><b>Scorciatoie</b> (tieni premuta l'icona dell'app) e <b>widget</b> nella Home di Android: prossima scadenza e tasti per rifornimento, km, intervento.</li>
+    <li><b>Scorciatoie</b> (tieni premuta l'icona dell'app) e <b>widget</b> nella schermata del telefono: prossima scadenza e tasti per rifornimento, km, intervento.</li>
   </ul>
-  <p>La prima volta DoctorCar chiede una sola volta se vuoi gli avvisi; da Impostazioni → <b>Avvisi</b> si cambiano o si spengono.</p>
+  <p>La prima volta DoctorCar chiede una sola volta se vuoi gli avvisi; da Impostazioni → <b>Avvisi</b> si cambiano o si spengono. Notifiche, tasti e widget parlano la stessa lingua dell'app.</p>
 </div>
 
-<div class="sezione">
-  <h2>11 · Più telefoni: la sincronizzazione</h2>
+<!-- ============ PARTE 5 ============ -->
+<div class="apertura"><span class="segno">§§p5§§</span>
+  <div class="n">Parte 5</div><div class="nome">I tuoi dati</div>
+  <ul><li>Gli stessi dati su più telefoni, senza cloud</li><li>Copia di sicurezza, tabelle, importazione da altre app, libretto in PDF</li><li>Come DoctorCar protegge i tuoi dati</li></ul>
+</div>
+
+<div class="sezione"><span class="segno">§§c14§§</span>
+  <h2><span class="num">14</span>Più telefoni: la sincronizzazione</h2>
   <p>Nell'app Android i dati possono stare <b>uguali su più telefoni e tablet</b> (per esempio i tuoi e quelli della famiglia). I telefoni si parlano <b>direttamente nella stessa Wi‑Fi</b>, con un collegamento cifrato, senza cloud e senza account.</p>
   <ol class="passi">
     <li>Sul primo telefono: Impostazioni → <b>Sincronizzazione</b> → <b>Collega un altro dispositivo</b>: compaiono un codice e un QR.</li>
@@ -260,49 +309,63 @@
   <div class="nota">Con più persone sugli stessi dati, ogni intervento e rifornimento ricorda <b>chi</b> l'ha segnato (il nome si scrive in Impostazioni → Dati) e si può filtrare.</div>
 </div>
 
-<div class="sezione">
-  <h2>12 · Copia di sicurezza, tabelle e libretto</h2>
+<div class="sezione"><span class="segno">§§c15§§</span>
+  <h2><span class="num">15</span>Copia di sicurezza, tabelle e libretto</h2>
   <ul>
     <li><b>Esporta copia</b> (Impostazioni → Dati): un file <b>cifrato</b> con la password che scegli (almeno 12 caratteri), con dati e foto. Serve se cambi o perdi il telefono.</li>
     <li><b>Importa copia</b>: con «Unisci» aggiunge ai dati di adesso, con «Sostituisci» li rimpiazza.</li>
     <li><b>Copia automatica</b> (app Android): una copia cifrata a settimana in una cartella a scelta (anche Drive), tenendo le ultime 5.</li>
     <li><b>Esporta in tabella (CSV)</b> per Excel o Fogli; <b>Importa da un'altra app (CSV)</b>: Fuelio, Fuelly, Drivvo, Simply Auto, aCar e simili, senza doppioni.</li>
-    <li><b>Libretto in PDF</b> di ogni veicolo (utile per vendere l'auto) e <b>Per l'officina</b>: un foglio con l'auto e gli ultimi lavori da mandare al meccanico.</li>
+    <li><b>Libretto in PDF</b> di ogni veicolo (utile per vendere l'auto) e <b>Per l'officina</b>: un foglio con l'auto, gli ultimi lavori e le cose da far vedere, da mandare al meccanico.</li>
   </ul>
   <div class="attenzione">Senza la password la copia <b>non si apre</b>: nessuno può recuperarla. Scrivila in un posto sicuro.</div>
 </div>
 
-<div class="sezione">
-  <h2>13 · Impostazioni e aspetto</h2>
-  <div class="coppia doppia">
-    <figure><img src="img/15-impostazioni.png" alt=""><figcaption>Impostazioni</figcaption></figure>
-    <figure><img src="img/16-tema-scuro.png" alt=""><figcaption>Tema scuro</figcaption></figure>
-    <div>
-      <ul>
-        <li><b>Aspetto</b>: tema automatico, chiaro o scuro; dimensione del testo (Normale, Grande, Molto grande); animazioni; nell'app la fluidità dello schermo (Automatica, Massima fino a 120 Hz, 60 Hz).</li>
-        <li><b>Vibrazione</b>: intensità (Leggera, Normale, Forte) e quando vibrare (tasti, operazioni riuscite, avvisi).</li>
-        <li><b>Avvisi</b>, <b>Sicurezza</b>, <b>Sincronizzazione</b> (nell'app).</li>
-        <li><b>Dati</b>: copia di sicurezza, tabella, importazione, il tuo nome («chi»), cancellare tutto.</li>
-        <li><b>Informazioni</b>: versione e privacy.</li>
-        <li>In fondo, <b>Segnala un problema o un'idea</b>: scrivi cosa è successo o cosa vorresti, con le informazioni tecniche già pronte, e lo mandi con la tua app di posta.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="sezione">
-  <h2>14 · Sicurezza e privacy</h2>
+<div class="sezione"><span class="segno">§§c16§§</span>
+  <h2><span class="num">16</span>Sicurezza e privacy</h2>
   <ul>
-    <li><b>Niente internet nella pagina</b>: DoctorCar non manda i tuoi dati a nessuno. La rete la usa solo la sincronizzazione, e solo verso i telefoni che hai collegato tu.</li>
-    <li><b>Impronta o PIN</b> all'apertura e quando torni nell'app (Impostazioni → Sicurezza → «Apri l'app con l'impronta»). Finché non confermi, la pagina resta coperta e nelle app recenti non si vede niente.</li>
+    <li><b>Nessun account, nessuna pubblicità, nessun dato inviato</b>: DoctorCar non manda i tuoi dati a nessuno. La rete la usano solo la sincronizzazione (verso i telefoni che hai collegato tu) e il controllo degli aggiornamenti (una lettura da GitHub, che si può spegnere).</li>
+    <li><b>Impronta o PIN</b> all'apertura e quando torni nell'app (Impostazioni → Sicurezza → «Apri l'app con l'impronta»). Finché non confermi, la pagina resta coperta.</li>
     <li>Impronta o PIN servono sempre per <b>esportare o importare la copia</b>, esportare la tabella e <b>cancellare tutto</b>.</li>
     <li>Copia di sicurezza e file della sincronizzazione sono <b>cifrati</b> (AES‑256).</li>
     <li><b>Cancella tutto da questo dispositivo</b> toglie dati, foto, chiavi e collegamenti, per esempio prima di vendere il telefono.</li>
   </ul>
+  <p class="piccolo">L'informativa completa sulla privacy è nel file PRIVACY.md su github.com/CrsLabs/DoctorCar.</p>
 </div>
 
-<div class="sezione">
-  <h2>15 · Se qualcosa non va</h2>
+<!-- ============ PARTE 6 ============ -->
+<div class="apertura"><span class="segno">§§p6§§</span>
+  <div class="n">Parte 6</div><div class="nome">Impostazioni e aiuto</div>
+  <ul><li>Aspetto, lingua, vibrazione, aggiornamenti</li><li>Cosa fare se qualcosa non va</li><li>Come scriverci e come sostenere DoctorCar</li><li>Le novità di ogni versione</li></ul>
+</div>
+
+<div class="sezione"><span class="segno">§§c17§§</span>
+  <h2><span class="num">17</span>Impostazioni: aspetto, lingua, aggiornamenti</h2>
+  <div class="coppia doppia">
+    <figure><img src="img/15-impostazioni.png" alt=""><figcaption>Impostazioni</figcaption></figure>
+    <figure><img src="img/22-lingua.png" alt=""><figcaption>Aspetto e lingua</figcaption></figure>
+    <div>
+      <p>Le Impostazioni si aprono con l'<b>ingranaggio</b> in alto a destra. Ogni gruppo si apre e si chiude con un tocco.</p>
+      <ul>
+        <li><b>Aspetto</b>: tema automatico, chiaro o scuro (cambia all'istante); <b>lingua</b> (Automatica, Italiano, English: cambia subito, senza riaprire l'app); dimensione del testo; animazioni; nell'app la fluidità dello schermo.</li>
+        <li><b>Vibrazione</b>: intensità e quando vibrare.</li>
+        <li><b>Sicurezza</b>, <b>Avvisi</b>, <b>Sincronizzazione</b>, <b>Aggiornamenti</b> (nell'app).</li>
+        <li><b>Dati</b>: copia di sicurezza, tabella, importazione, il tuo nome («chi»), cancellare tutto.</li>
+        <li><b>Informazioni</b>: versione, privacy e contatti.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="coppia">
+    <figure><img src="img/16-tema-scuro.png" alt=""><figcaption>Tema scuro</figcaption></figure>
+    <div>
+      <p>Con il tema <b>Automatico</b> DoctorCar segue il telefono, anche mentre è aperta. La barra in alto con l'ora prende il colore dell'app, così si legge sempre.</p>
+      <p>«Automatica» nella lingua usa l'inglese se il telefono è in inglese, l'italiano negli altri casi. Le date e i numeri seguono la lingua scelta (es. «22 nov 2026» o «22 Nov 2026»).</p>
+    </div>
+  </div>
+</div>
+
+<div class="sezione"><span class="segno">§§c18§§</span>
+  <h2><span class="num">18</span>Se qualcosa non va</h2>
   <table>
     <tr><th>Cosa succede</th><th>Cosa fare</th></tr>
     <tr><td>Non arrivano gli avvisi</td><td>Impostazioni → Avvisi: controlla che siano accesi; se Android li ha bloccati tocca «Apri le impostazioni di Android» e permetti le notifiche. Togli DoctorCar dal risparmio energetico.</td></tr>
@@ -312,22 +375,35 @@
     <tr><td>Due telefoni non si allineano</td><td>Stessa Wi‑Fi (non quella ospiti), app aperta su tutti e due, poi «Sincronizza ora».</td></tr>
     <tr><td>La posizione del parcheggio non si trova</td><td>Accendi la posizione del telefono e dai il permesso a DoctorCar; all'aperto è più precisa.</td></tr>
     <tr><td>La copia non si apre</td><td>Controlla la password (maiuscole e minuscole contano).</td></tr>
-    <tr><td>Qualcos'altro non va, o hai un'idea</td><td>Impostazioni → <b>Segnala un problema o un'idea</b> (o scrivi «segnala» nella ricerca).</td></tr>
+    <tr><td>«Controlla adesso» non trova aggiornamenti</td><td>Se hai già l'ultima versione è giusto così; altrimenti controlla di essere collegato a internet.</td></tr>
+    <tr><td>Android non installa l'aggiornamento</td><td>La prima volta permetti a DoctorCar di «installare app sconosciute», poi tocca di nuovo Aggiorna.</td></tr>
+    <tr><td>Qualcos'altro non va, o hai un'idea</td><td>Impostazioni → <b>Segnala un problema o un'idea</b> (capitolo 19).</td></tr>
   </table>
 </div>
 
-<div class="sezione">
-  <h2>16 · Novità, versione per versione</h2>
+<div class="sezione"><span class="segno">§§c19§§</span>
+  <h2><span class="num">19</span>Contatti, segnalazioni e sostegno</h2>
+  <div class="coppia">
+    <figure><img src="img/24-segnala-sostieni.png" alt=""><figcaption>In fondo alle Impostazioni</figcaption></figure>
+    <div>
+      <h3 style="margin-top:0">Segnala un problema o un'idea</h3>
+      <p>In fondo alle Impostazioni tocca <b>Segnala un problema o un'idea</b>. Scegli se è un problema o un'idea, scrivi in poche parole cosa è successo o cosa vorresti, e tocca <b>Invia con la posta</b>: la mail è già indirizzata a <b>crslabs.info@gmail.com</b> e parte solo quando la spedisci tu.</p>
+      <p>Le <b>informazioni tecniche</b> (versione, telefono, sezione, ultimi errori) aiutano a capire il problema: niente targhe, nomi, importi o foto. Con «Vedi tutto quello che viene inviato» le controlli prima, e puoi toglierle.</p>
+      <h3>Sostieni DoctorCar</h3>
+      <p>DoctorCar è <b>gratis</b>, senza pubblicità e senza raccogliere dati. Se ti è utile puoi offrire un caffè allo sviluppatore: <b>Sostieni DoctorCar</b> apre la pagina <b>ko-fi.com/crslabs</b> nel browser.</p>
+      <h3>Codice aperto</h3>
+      <p>DoctorCar è software libero (licenza GPL‑3.0): il codice è su <b>github.com/CrsLabs/DoctorCar</b>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sezione"><span class="segno">§§c20§§</span>
+  <h2><span class="num">20</span>Novità, versione per versione</h2>
   <table>
     <tr><th>Versione</th><th>Cosa c'è di nuovo</th></tr>
-    <tr><td>2.4</td><td>App anche in inglese (Impostazioni → Aspetto → Lingua), aggiornamenti controllati una volta a settimana (Impostazioni → Aggiornamenti), consumo del viaggio in km/l o l/100 km, unità dei ricambi da scegliere, segnalazioni a crslabs.info@gmail.com, «Sostieni DoctorCar».</td></tr>
+    <tr><td>2.4</td><td>App anche in <b>inglese</b> (la lingua cambia subito), <b>aggiornamenti automatici</b> da GitHub, consumo del viaggio in km/l o l/100 km, unità dei ricambi da scegliere, «Segnala un problema o un'idea» verso crslabs.info@gmail.com, «Sostieni DoctorCar», tema che cambia all'istante con la barra in alto sempre leggibile.</td></tr>
     <tr><td>2.3</td><td>Lista «Da far vedere al meccanico» (anche nel foglio per l'officina), ricambi in garage per ogni auto con «Da ricomprare», Magazzino con lista della spesa, «Già che ci sei» dopo un intervento, quanto costa il viaggio.</td></tr>
-    <tr><td>2.2.5</td><td>Parcheggio: la finestra non si ridisegna più (niente sfarfallio); la posizione si migliora solo toccando «Aggiorna la posizione» e cambia solo se la nuova lettura è più precisa.</td></tr>
-    <tr><td>2.2.4</td><td>Al chiuso la posizione si ferma di affinare appena smette di migliorare: pochi secondi invece di mezzo minuto.</td></tr>
-    <tr><td>2.2.3</td><td>Posizione del parcheggio precisa come in Mappe: si usa la posizione combinata di Android alla massima precisione, insieme a GPS e rete, per 45 secondi; la precisione migliora sotto i tuoi occhi.</td></tr>
-    <tr><td>2.2.2</td><td>Parcheggio: la posizione compare subito e intanto il GPS la rende più precisa da solo; se hai dato solo la posizione approssimativa, l'app spiega come dare quella precisa.</td></tr>
-    <tr><td>2.2.1</td><td>Indietro durante la ricerca svuota la ricerca (non chiude più l'app); sezioni e finestre ripartono sempre dall'alto; Home a due colonne sui tablet; posizione del parcheggio trovata anche con il GPS appena acceso.</td></tr>
-    <tr><td>2.2</td><td>Home riorganizzata: ricerca in tutta l'app, riquadri a colpo d'occhio, «Da controllare». Segnalazione di problemi e idee, menu che ripartono dall'alto, Impostazioni sempre chiuse all'apertura, vibrazione dei tocchi più leggera, cambio di tema morbido.</td></tr>
+    <tr><td>2.2</td><td>Home riorganizzata: ricerca in tutta l'app, riquadri a colpo d'occhio, «Da controllare». Parcheggio più preciso. Segnalazione di problemi e idee.</td></tr>
     <tr><td>2.1</td><td>Bollo proposto, tolleranza dell'assicurazione, revisione a fine mese, documenti e permessi, controlli veloci, grafico del consumo, storico delle gomme con scambio automatico, budget, spese veloci e multa con lo sconto, dove ho parcheggiato e sosta a tempo.</td></tr>
     <tr><td>2.0</td><td>Meno tocchi (valori già pronti, «Come l'ultima volta», litri/prezzo/importo), azione consigliata e avvisi in Home, previsione delle spese, tasti nelle notifiche, scorciatoie e widget, calendario, importazione da altre app, libretto in PDF e foglio per l'officina, copia automatica, «chi».</td></tr>
     <tr><td>1.3</td><td>Accesso con impronta o PIN.</td></tr>

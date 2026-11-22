@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- App completamente offline: nessuna risorsa esterna. Questa regola impedisce qualsiasi connessione di rete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-GHxTCLOZ1ySxzbuOoXbrvBZn02/AyfFwMDvnYciBwG0='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-AiJK5k3HAl4dI9gRJu96plK5wJ++S0JuVo/KsOCniow='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="google" content="notranslate">
   <meta name="theme-color" content="#1e293b">
@@ -948,7 +948,9 @@ html.con-tastiera #barraNav { display: none; }
   "# km/kWh": "# km/kWh",
   "# km/l": "# km/l",
   "# l": "# l",
+  "# litri": "# litres",
   "# litri · per olio motore · @": "# litres · for engine oil · @",
+  "# litro": "# litre",
   "# minuti per l'auto": "# minutes for the car",
   "# pezzi · @": "# pieces · @",
   "# ricambi": "# parts",
@@ -963,7 +965,9 @@ html.con-tastiera #barraNav { display: none; }
   "# veicoli · # interventi · # rifornimenti · # scadenze": "# vehicles · # jobs · # fill-ups · # due dates",
   "# voce senza costo: non l'hai ancora pagata con DoctorCar.": "# item without cost: you haven't paid it with DoctorCar yet.",
   "# voci senza costo: non le hai ancora pagate con DoctorCar.": "# items without cost: you haven't paid them with DoctorCar yet.",
+  "# § (# km)": "# § (# km)",
   "# § (dal registro)": "# § (from the log)",
+  "# § (fine del mese).": "# § (end of the month).",
   "# § · # km": "# § · # km",
   "# § · # km (dal registro)": "# § · # km (from the log)",
   "# § · # km · @": "# § · # km · @",
@@ -978,6 +982,7 @@ html.con-tastiera #barraNav { display: none; }
   "# €/l": "# €/l",
   "# €: dentro il budget.": "# €: within budget.",
   "# €: oltre il budget.": "# €: over budget.",
+  "#:# (tra # min)": "#:# (in # min)",
   "% in più del solito.": "% more than usual.",
   "(andata e ritorno)": "(return trip)",
   "(dal registro)": "(from the log)",
@@ -1004,6 +1009,7 @@ html.con-tastiera #barraNav { display: none; }
   ": oltre il budget.": ": over budget.",
   ": per un punto preciso, nelle impostazioni dell'app → Autorizzazioni → Posizione, accendi «@».": ": for a precise point, in the app settings → Permissions → Location, turn on «@».",
   "@ # km · @ # km": "@ # km · @ # km",
+  "@ (@)": "@ (@)",
   "@ parcheggiata alle #:#": "@ parked at #:#",
   "@ · @ · Benzina · immatricolata il # §": "@ · @ · Petrol · registered on # §",
   "@ · ogni # anni": "@ · every # years",
@@ -1643,7 +1649,9 @@ html.con-tastiera #barraNav { display: none; }
   "Più tardi": "Later",
   "Pneumatici nuovi": "New tyres",
   "Poco precisa: tocca «@» (all'aperto è meglio).": "Not very precise: tap «@» (outdoors is better).",
+  "Portami lì": "Take me there",
   "Posizione del parcheggio": "Parking location",
+  "Posizione e nota": "Location and note",
   "Posizione migliorata: ora circa *": "Location improved: now about *",
   "Posizione non disponibile": "Location not available",
   "Posizione non disponibile.": "Location not available.",
@@ -1742,6 +1750,8 @@ html.con-tastiera #barraNav { display: none; }
   "Sblocco non disponibile: *": "Unlock not available: *",
   "Sblocco non riuscito: riprova.": "Unlock failed: try again.",
   "Scade il": "Due on",
+  "Scade il # § (poi # giorni di tolleranza).": "Due on # § (then # days of grace).",
+  "Scade il # §.": "Due on # §.",
   "Scadenza": "Due date",
   "Scadenza aggiunta.": "Due date added.",
   "Scadenza salvata.": "Due date saved.",
@@ -1830,6 +1840,7 @@ html.con-tastiera #barraNav { display: none; }
   "Spazio non disponibile": "Space not available",
   "Spazzole del tergicristallo": "Wiper blades",
   "Spazzole tergicristallo": "Wiper blades",
+  "Spazzole tergicristallo (@).": "Wiper blades (@).",
   "Spegnere la copia automatica? Le copie già nella cartella restano lì.": "Turn off automatic backup? The backups already in the folder stay there.",
   "Spegni": "Turn off",
   "Spegni la copia automatica": "Turn off automatic backup",
@@ -1876,6 +1887,7 @@ html.con-tastiera #barraNav { display: none; }
   "Togliere questo ricambio dal garage?": "Remove this part from the garage?",
   "Totale": "Total",
   "Totale #": "Total #",
+  "Tra # giorni": "In # days",
   "Treno di gomme": "Set of tyres",
   "Treno di gomme aggiunto.": "Set of tyres added.",
   "Troppi rinvii": "Too many redirects",
@@ -1945,6 +1957,7 @@ html.con-tastiera #barraNav { display: none; }
   "con consumo molto peggiore del solito.": "with much worse consumption than usual.",
   "confezioni": "packs",
   "contachilometri chilometri": "odometer mileage kilometres miles",
+  "coppie": "pairs",
   "cose sistemate": "things fixed",
   "costi anno mese quanto spendo previsione": "costs year month how much spend forecast",
   "da ricomprare": "to buy again",
@@ -1973,6 +1986,7 @@ html.con-tastiera #barraNav { display: none; }
   "giorni fa": "days ago",
   "grammi": "grams",
   "hz # # # # frequenza batteria": "hz # # # # refresh rate frequency battery smooth",
+  "immatricolata # §": "registered # §",
   "immatricolata il # §": "registered on # §",
   "in arrivo": "due soon",
   "in garage": "in the garage",

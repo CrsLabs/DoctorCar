@@ -163,11 +163,13 @@ Stesso stile di DoctorWood: blu notte e ambra, tema chiaro e scuro, finestre dal
 |---|---|
 | Guida all'uso con immagini (PDF) | [`guida/DoctorCar-Guida.pdf`](guida/DoctorCar-Guida.pdf) |
 | Tutorial «come si fa» per ogni funzione (PDF) | [`guida/DoctorCar-Tutorial.pdf`](guida/DoctorCar-Tutorial.pdf) |
+| User guide in English (PDF) | [`guida/DoctorCar-Guide-EN.pdf`](guida/DoctorCar-Guide-EN.pdf) |
+| Tutorials in English (PDF) | [`guida/DoctorCar-Tutorials-EN.pdf`](guida/DoctorCar-Tutorials-EN.pdf) |
 | Prove automatiche | [`prove/LEGGIMI-PROVE.md`](prove/LEGGIMI-PROVE.md) |
 | Istruzioni per chi sviluppa | [`SVILUPPO.md`](SVILUPPO.md) |
 | Informativa sulla privacy | [`PRIVACY.md`](PRIVACY.md) |
 
-Le schermate della guida si rifanno con `node guida/schermate.js` (dati d'esempio in `guida/dati-esempio.js`), i PDF con `node guida/genera-guida.js` e `node guida/genera-guida.js tutorial`.
+Guida e tutorial sono divisi nelle stesse sei parti (Iniziare, Manutenzione, Carburante e spese, Ogni giorno, I tuoi dati, Impostazioni e aiuto), con l'indice e i numeri di pagina. Le schermate si rifanno con `node guida/schermate.js` (e `node guida/schermate.js en` per l'inglese; dati d'esempio in `guida/dati-esempio.js`), i quattro PDF con `node guida/genera-guida.js`.
 
 ## Struttura
 ```
