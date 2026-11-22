@@ -27,10 +27,11 @@ Le prove usano Playwright con Chromium. Server: `python3 -m http.server 8786` da
 La pagina è scritta in italiano; in inglese i testi mostrati si traducono al volo con la tabella di `lingua/inglese.txt` (una riga per frase: italiano, freccia, inglese; `#` numero, `@` nome scritto da chi usa l'app, `«@»` nome tra «», `§` data o mese, `*` inizio di frase; le righe `@@` traducono i nomi dei tasti citati tra «»). Dopo ogni modifica: `python3 lingua/applica.py` e `python3 prepara.py`. **Ogni testo nuovo va aggiunto**: `INGLESE=/tmp/x.json node prove/robot.js` e `RACCOLTA=/tmp/x.json node prove/inglese.js` raccolgono quelli senza traduzione. La parte Android usa `Testi.java` e `res/values-en`.
 
 ## Pubblicare una versione
-1. Compila e firma l'APK.
+1. Compila e firma l'APK (la firma si fa fuori da GitHub: le chiavi non vanno mai nel repository).
 2. Aggiorna `rilasci/aggiornamento.json` (`versionCode`, `versione`, `apk`, `sha256` dell'APK, `novita`).
-3. Su GitHub: Releases → «Draft a new release», etichetta `vX.Y.Z`, allega l'APK e `aggiornamento.json`.
-Le app installate la trovano da sole entro una settimana (`Aggiornamento.java`: solo https da GitHub, impronta SHA-256, stesso pacchetto, versione più nuova, stessa firma).
+3. Sul ramo **`rilasci`** (separato dal codice: contiene solo l'automazione, l'APK e `aggiornamento.json`) togli l'APK vecchio, metti quello nuovo e il nuovo `aggiornamento.json`, e carica.
+4. L'automazione `.github/workflows/rilascio.yml` di quel ramo controlla l'impronta dell'APK e crea da sola la Release `vX.Y.Z` con i due file.
+Le app installate la trovano da sole entro una settimana (`Aggiornamento.java`: solo https da GitHub, impronta SHA-256, stesso pacchetto, versione più nuova, stessa firma). In alternativa la Release si può sempre creare a mano dal sito, allegando gli stessi due file.
 
 ## Guida
 Schermate: `node guida/schermate.js` (dati d'esempio in `guida/dati-esempio.js`). PDF: `node guida/genera-guida.js` e `node guida/genera-guida.js tutorial`.
