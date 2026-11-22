@@ -1,8 +1,8 @@
 {
  "pacchetto": "it.doctorcar.app",
- "versionCode": 24,
- "versione": "2.4.3",
- "apk": "DoctorCar-2.4.3.apk",
- "sha256": "3946365fa5946a2af4bcac2290d13e65ff616148ec3f2c32e84d5654c57dfd95",
- "novita": "Tema chiaro e scuro che cambia in un colpo solo, senza scatti; con il tema chiaro la barra in alto con l'ora ora si vede bene."
+ "versionCode": 25,
+ "versione": "2.4.4",
+ "apk": "DoctorCar-2.4.4.apk",
+ "sha256": "0067002eaef48613c6a6ed79aa84f2783ad581b82bb7945b0bddf0a165d98422",
+ "novita": "Sincronizzazione fra telefoni più robusta e alcune frasi inglesi corrette (parcheggio, scadenze)."
 }
