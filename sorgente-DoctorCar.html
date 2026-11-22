@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- App completamente offline: nessuna risorsa esterna. Questa regola impedisce qualsiasi connessione di rete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-kQjkBHZNhxyUmxr1dWXUHMcEgG1hSixHgd7R0xStzvo='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-GHxTCLOZ1ySxzbuOoXbrvBZn02/AyfFwMDvnYciBwG0='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="google" content="notranslate">
   <meta name="theme-color" content="#1e293b">
@@ -60,6 +60,7 @@ html[data-tema="chiaro"] {
 }
 *, ::before, ::after { box-sizing: border-box; border: 0 solid var(--bordo); }
 html { overflow-x: hidden; overscroll-behavior: none; scroll-padding-top: 84px; scroll-padding-bottom: calc(10rem + env(safe-area-inset-bottom)); }   /* ciò che si porta in vista (anche i campi con la tastiera) non finisce sotto intestazione e barre */
+html.tema-istantaneo, html.tema-istantaneo *, html.tema-istantaneo *::before, html.tema-istantaneo *::after { transition: none !important; }   /* cambio di tema: tutti i colori nello stesso istante, niente scatti */
 body { overflow-x: clip; }   /* «clip», non «hidden»: il body non diventa un'area che scorre per conto suo (bloccherebbe lo scorrimento con il dito) */
 html { line-height: 1.5; -webkit-text-size-adjust: 100%; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-tap-highlight-color: transparent; background: var(--fondo); }
 body { margin: 0; min-height: 100vh; background: var(--fondo); color: var(--testo); }
@@ -907,7 +908,7 @@ html.con-tastiera #barraNav { display: none; }
     // cose diverse si possono unire senza perdite (vince la modifica più recente, record per record).
     // Le cancellazioni restano come «lapidi» (del: true), perché anche gli altri dispositivi le ricevano.
     // ======================================================================
-    const VERSIONE = '2.4.2';
+    const VERSIONE = '2.4.3';
     const $ = id => document.getElementById(id);
     const S = window.localStorage;
     const K_DATI = 'doctorcar_dati', K_DISP = 'doctorcar_dispositivo', K_COPIA = 'doctorcar_ultima_copia';
@@ -4953,12 +4954,19 @@ html.con-tastiera #barraNav { display: none; }
       // dalla ricerca: si arriva direttamente alla sezione giusta
       if (cat) { const t = document.querySelector('[data-cat="' + cat + '"]'); if (t) setTimeout(() => { try { t.scrollIntoView({ block: 'start', behavior: 'smooth' }); } catch (_) { } }, 80); }
     }
+    // cambio di tema in un colpo solo (uguale nelle tre app): per un attimo niente transizioni, così tutti i colori
+    // cambiano nello stesso fotogramma invece di inseguirsi; le animazioni in corso non si fermano
+    function temaInUnColpo(applica) {
+      const h = document.documentElement;
+      h.classList.add('tema-istantaneo'); applica(); void h.offsetWidth;
+      requestAnimationFrame(() => requestAnimationFrame(() => h.classList.remove('tema-istantaneo')));
+    }
     function scegliTema(t) {
       scriviJ('doctorcar_tema', t);
       const scuro = t === 'scuro' || (t === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches), h = document.documentElement;
       const applica = () => { h.setAttribute('data-tema', scuro ? 'scuro' : 'chiaro'); h.setAttribute('data-tema-scelta', t); };
-      // il tema cambia all'istante, come in DoctorWood e BothWise: nessun effetto che faccia ripartire le animazioni o vada a scatti
-      applica();
+      // il tema cambia all'istante e in un colpo solo, come in DoctorWood e BothWise
+      temaInUnColpo(applica);
       document.querySelectorAll('.opz[data-tema]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.tema === t)));
       try { window.dispatchEvent(new CustomEvent('tema-cambiato')); } catch (_) {}
     }

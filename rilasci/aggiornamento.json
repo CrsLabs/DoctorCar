@@ -1,8 +1,8 @@
 {
  "pacchetto": "it.doctorcar.app",
- "versionCode": 23,
- "versione": "2.4.2",
- "apk": "DoctorCar-2.4.2.apk",
- "sha256": "221de029c76652fafb00290285316028da2a7de1ad8a60524a7390f392376f6b",
- "novita": "Inglese con cambio di lingua immediato, aggiornamenti automatici, Impostazioni più chiare con «Segnala un problema o un'idea» e «Sostieni DoctorCar», tema che cambia all'istante."
+ "versionCode": 24,
+ "versione": "2.4.3",
+ "apk": "DoctorCar-2.4.3.apk",
+ "sha256": "3946365fa5946a2af4bcac2290d13e65ff616148ec3f2c32e84d5654c57dfd95",
+ "novita": "Tema chiaro e scuro che cambia in un colpo solo, senza scatti; con il tema chiaro la barra in alto con l'ora ora si vede bene."
 }

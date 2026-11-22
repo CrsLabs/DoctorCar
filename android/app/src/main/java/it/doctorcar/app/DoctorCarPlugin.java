@@ -962,6 +962,30 @@ public class DoctorCarPlugin extends Plugin {
         catch (android.content.ActivityNotFoundException e) { call.reject("Nessun browser", "ASSENTE", e); }
     }
 
+    /** barre({ chiaro, colore }) — barra di stato e barra in basso dello stesso colore dell'intestazione della pagina,
+     *  con icone scure sul tema chiaro e chiare sul tema scuro (così l'ora si vede sempre) */
+    @PluginMethod
+    public void barre(PluginCall call) {
+        final boolean chiaro = Boolean.TRUE.equals(call.getBoolean("chiaro", false));
+        String c = call.getString("colore", "");
+        int colore;
+        try { colore = android.graphics.Color.parseColor(c != null && c.matches("#[0-9a-fA-F]{6}") ? c : (chiaro ? "#ffffff" : "#1e293b")); }
+        catch (Exception e) { colore = chiaro ? 0xffffffff : 0xff1e293b; }
+        final int col = colore;
+        getActivity().runOnUiThread(() -> {
+            android.view.Window w = getActivity().getWindow();
+            w.getDecorView().setBackgroundColor(col);
+            //noinspection deprecation
+            w.setStatusBarColor(col);
+            //noinspection deprecation
+            w.setNavigationBarColor(col);
+            androidx.core.view.WindowInsetsControllerCompat ic = androidx.core.view.WindowCompat.getInsetsController(w, w.getDecorView());
+            ic.setAppearanceLightStatusBars(chiaro);
+            ic.setAppearanceLightNavigationBars(chiaro);
+            call.resolve();
+        });
+    }
+
     /** lingua({ inglese }) — la lingua della pagina, per notifiche, widget e fotocamera */
     @PluginMethod
     public void lingua(PluginCall call) {

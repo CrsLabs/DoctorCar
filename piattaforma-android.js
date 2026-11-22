@@ -744,6 +744,22 @@
       try { CAP.addListener('DoctorCar', 'posizione', x => { if (typeof window.__posizioneMigliore === 'function') window.__posizioneMigliore(x); }); } catch (_) {}
       window.__apriMappa = (lat, lon) => nat('apriMappa', { lat, lon });
       window.__apriLink = url => nat('apriLink', { url });
+      // barra di stato e barra in basso: stesso colore della parte alta della pagina, icone scure sul chiaro e chiare sul
+      // tema scuro (uguale in DoctorCar, DoctorWood e BothWise); si rifà dopo il cambio di tema e al ritorno nell'app
+      const coloreInAlto = () => {
+        for (let el = document.elementFromPoint(innerWidth / 2, 2); el; el = el.parentElement) {
+          const m = (getComputedStyle(el).backgroundColor || '').match(/[\d.]+/g);
+          if (m && m.length >= 3 && !(m.length >= 4 && Number(m[3]) < 0.9)) return '#' + m.slice(0, 3).map(x => Math.round(+x).toString(16).padStart(2, '0')).join('');
+        }
+        return '';
+      };
+      const coloreBarre = () => {
+        const chiaro = document.documentElement.getAttribute('data-tema') === 'chiaro';
+        requestAnimationFrame(() => { nat('barre', { chiaro, colore: coloreInAlto() }).catch(() => {}); });
+      };
+      coloreBarre(); [400, 1500, 4000].forEach(ms => setTimeout(coloreBarre, ms));
+      new MutationObserver(coloreBarre).observe(document.documentElement, { attributes: true, attributeFilter: ['data-tema'] });
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') coloreBarre(); });
       window.__attivaPosizione = () => nat('attivaPosizione');
       window.__email = (a, oggetto, testo) => nat('email', { a, oggetto, testo });
       window.__impostazioniApp = () => nat('impostazioniApp');
