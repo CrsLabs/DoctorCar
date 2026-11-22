@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><title>DoctorCar – Tutorial</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1e293b; font-size: 10.5pt; line-height: 1.5; margin: 0; }
+  h1 { font-size: 22pt; color: #7c2d12; margin: 0 0 4mm; }
+  h2 { font-size: 15pt; color: #7c2d12; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid #f59e0b; break-after: avoid; }
+  h3 { font-size: 11.5pt; margin: 5mm 0 1.5mm; color: #0f172a; break-after: avoid; }
+  p { margin: 0 0 2.5mm; }
+  ul, ol { margin: 0 0 3mm 5mm; padding-left: 4mm; }
+  li { margin-bottom: 1mm; }
+  b, strong { color: #0f172a; }
+  .sezione { break-before: page; }
+  .copertina { height: 255mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(#fff, #fffbeb); }
+  .copertina img.logo { width: 46mm; height: 46mm; border-radius: 10mm; box-shadow: 0 3mm 8mm rgba(0,0,0,.25); }
+  .copertina .titolo { font-size: 34pt; font-weight: 800; margin-top: 10mm; color: #1e293b; }
+  .copertina .titolo span { color: #b45309; }
+  .copertina .sotto { font-size: 15pt; color: #475569; margin-top: 2mm; }
+  .copertina .ver { margin-top: 14mm; font-size: 11pt; color: #64748b; }
+  .indice { column-count: 1; }
+  .indice li { margin-bottom: 1.6mm; }
+  .coppia { display: grid; grid-template-columns: 46mm 1fr; gap: 7mm; margin: 3mm 0 5mm; align-items: start; break-inside: avoid; }
+  .coppia.doppia { grid-template-columns: 46mm 46mm 1fr; }
+  figure { margin: 0; }
+  figure img { width: 100%; border: 1px solid #cbd5e1; border-radius: 4mm; box-shadow: 0 1mm 3mm rgba(0,0,0,.15); display: block; }
+  figcaption { font-size: 8.5pt; color: #64748b; margin-top: 1.5mm; text-align: center; }
+  .nota { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 2.5mm 4mm; margin: 3mm 0; border-radius: 0 2mm 2mm 0; break-inside: avoid; }
+  .attenzione { background: #fef2f2; border-left: 3px solid #e11d48; padding: 2.5mm 4mm; margin: 3mm 0; border-radius: 0 2mm 2mm 0; break-inside: avoid; }
+  .passi { counter-reset: p; list-style: none; margin-left: 0; padding-left: 0; }
+  .passi li { counter-increment: p; position: relative; padding-left: 8mm; margin-bottom: 2mm; }
+  .passi li::before { content: counter(p); position: absolute; left: 0; top: 0.3mm; width: 5.5mm; height: 5.5mm; border-radius: 50%; background: #f59e0b; color: #1e293b; font-weight: 700; font-size: 8.5pt; text-align: center; line-height: 5.5mm; }
+  table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.5pt; }
+  th, td { border: 1px solid #cbd5e1; padding: 1.5mm 2.5mm; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; }
+  .piccolo { font-size: 8.5pt; color: #64748b; }
+</style><style>.tut{break-inside:avoid;margin:0 0 6mm;padding:3.5mm 4.5mm;border:1px solid #e2e8f0;border-radius:3mm}
+.tut h3{margin:0 0 1.5mm;font-size:12pt}.tut .quando{font-size:9pt;color:#64748b;margin:0 0 2mm}.tut ol{margin-bottom:1mm}
+.tut img{width:32mm;float:right;margin:0 0 2mm 5mm;border:1px solid #cbd5e1;border-radius:3mm}
+.gruppo{break-before:page}.gruppo:first-of-type{break-before:auto}.nota2{font-size:9.5pt;background:#fffbeb;border-left:3px solid #f59e0b;padding:1.5mm 3mm;margin-top:2mm}</style></head><body>
+<div class="copertina"><img class="logo" src="../icona/logo-doctorcar-1024.png" alt=""><div class="titolo">Doctor<span>Car</span></div>
+<div class="sotto">Tutorial: come si fa, passo per passo</div><div class="ver">Versione dell'app: {{VERSIONE}} · aggiornato il {{DATA}}</div></div>
+<div class="sezione"><h2>Indice</h2><ol class="indice"><li>Per cominciare</li><li>Interventi e foto</li><li>Scadenze e documenti</li><li>Rifornimenti, km e spese</li><li>Gomme e controlli</li><li>Parcheggio</li><li>Meccanico, ricambi e viaggi</li><li>Avvisi</li><li>Più telefoni</li><li>Copia di sicurezza e file</li><li>Aspetto e sicurezza</li></ol>
+<div class="nota">Ogni scheda spiega <b>una cosa sola</b>, in pochi passi. Per la descrizione completa dell'app c'è la <b>Guida all'uso</b>.</div></div>
+
+<div class="gruppo"><h2>Per cominciare</h2>
+<div class="tut"><h3>Aggiungere la tua auto</h3><img src="img/12-nuovo-veicolo.png" alt=""><p class="quando">Al primo avvio, o da Veicoli.</p><ol class="passi"><li>Tocca <b>Aggiungi la tua auto</b> (o Veicoli → <b>Aggiungi un veicolo</b>).</li><li>Scrivi nome, marca, modello, targa, alimentazione, immatricolazione e i <b>km attuali</b>.</li><li>Più sotto scrivi assicurazione, bollo, ultima revisione e ultimo tagliando: le scadenze nascono già complete.</li><li>Tocca <b>Salva</b>.</li></ol></div>
+<div class="tut"><h3>Trovare una cosa nell'app</h3><img src="img/17-ricerca.png" alt=""><p class="quando">Quando non sai dove sta.</p><ol class="passi"><li>In Home tocca <b>Cerca nell'app…</b>.</li><li>Scrivi con parole tue: «gomme», «bollo», «backup», «multa», la targa…</li><li>Tocca il risultato: ti porta dritto lì.</li></ol></div>
+<div class="tut"><h3>Completare le scadenze</h3><img src="img/01-home.png" alt=""><p class="quando">Quando in Home c'è «Completa una scadenza».</p><ol class="passi"><li>Tocca <b>Completa</b>.</li><li>Scrivi quando hai fatto quella cosa l'ultima volta (data e km, se li sai).</li><li>Salva: da lì DoctorCar ti avvisa in tempo.</li></ol></div>
+<div class="tut"><h3>Guardare la scheda dell'auto</h3><img src="img/08-scheda-veicolo.png" alt=""><p class="quando">Per vedere tutto di un'auto.</p><ol class="passi"><li>Apri <b>Veicoli</b> e tocca l'auto.</li><li>Leggi km, km l'anno, consumo, spese, grafico del consumo, gomme e scadenze.</li><li>Da qui aggiungi interventi, scadenze, gomme o apri il libretto in PDF.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Interventi e foto</h2>
+<div class="tut"><h3>Segnare un intervento</h3><img src="img/09-nuovo-intervento.png" alt=""><p class="quando">Dopo il meccanico, il gommista, la revisione…</p><ol class="passi"><li>In Home tocca <b>+ Intervento</b>.</li><li>Controlla veicolo, data e km (sono già proposti).</li><li>Tocca le voci fatte (anche più di una: tagliando, olio, filtri…).</li><li>Scrivi officina e costo, poi <b>Salva</b>: la scadenza collegata si aggiorna da sola.</li></ol></div>
+<div class="tut"><h3>Rifare un intervento come l'ultima volta</h3><p class="quando">Per il tagliando di ogni anno.</p><ol class="passi"><li>Apri <b>+ Intervento</b>.</li><li>In «Come l'ultima volta» tocca il lavoro da ripetere: voci, officina e costo si compilano da soli.</li><li>Correggi se serve e <b>Salva</b>.</li></ol></div>
+<div class="tut"><h3>Aggiungere la foto della fattura</h3><p class="quando">Per tenere la prova di quello che hai pagato.</p><ol class="passi"><li>Apri l'intervento (nuovo o già salvato).</li><li>Tocca <b>Scatta foto</b> o <b>Scegli foto</b> (fino a 12).</li><li><b>Salva</b>. Tocca una foto per vederla grande e ingrandirla.</li></ol></div>
+<div class="tut"><h3>Cercare un intervento</h3><img src="img/03-interventi.png" alt=""><p class="quando">«Quando ho cambiato le pastiglie?»</p><ol class="passi"><li>Apri <b>Interventi</b>.</li><li>Scrivi nella ricerca (officina, voce o descrizione) o scegli il veicolo.</li><li>Tocca l'intervento per vederlo o correggerlo.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Scadenze e documenti</h2>
+<div class="tut"><h3>Segnare fatta una scadenza</h3><img src="img/11-scadenza.png" alt=""><p class="quando">Hai pagato il bollo o fatto la revisione.</p><ol class="passi"><li>Apri <b>Scadenze</b> e tocca la scadenza.</li><li>Tocca <b>Fatto: segna l'intervento</b>: si apre l'intervento già compilato.</li><li>Controlla data e costo e <b>Salva</b>: la prossima scadenza si calcola da sola.</li></ol></div>
+<div class="tut"><h3>Aggiungere una scadenza</h3><img src="img/04-scadenze.png" alt=""><p class="quando">Per qualcosa che non c'è ancora.</p><ol class="passi"><li>Apri <b>Scadenze</b> → <b>Nuova scadenza</b>.</li><li>Scegli il veicolo e la voce, poi ogni quanti km e/o mesi.</li><li>Scrivi l'ultima volta o la prossima data, e il costo se lo sai. <b>Salva</b>.</li></ol></div>
+<div class="tut"><h3>Aggiungere patente, Telepass, ZTL…</h3><p class="quando">Documenti e permessi con scadenza.</p><ol class="passi"><li>Apri <b>Scadenze</b>.</li><li>In «Documenti e permessi» tocca il documento (es. <b>+ Patente</b>).</li><li>Scrivi la data di scadenza e salva. Quando lo rinnovi, «Fatto» chiede la nuova data.</li></ol></div>
+<div class="tut"><h3>Mettere una scadenza nel calendario</h3><p class="quando">Per vederla anche nel calendario del telefono.</p><ol class="passi"><li>Apri la scadenza.</li><li>Tocca <b>Aggiungi al calendario</b> e conferma nell'app del calendario.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Rifornimenti, km e spese</h2>
+<div class="tut"><h3>Segnare un pieno</h3><img src="img/10-nuovo-rifornimento.png" alt=""><p class="quando">Al distributore.</p><ol class="passi"><li>In Home tocca <b>+ Pieno</b>.</li><li>Scrivi i km del cruscotto.</li><li>Scrivi <b>due</b> fra litri, prezzo al litro e importo: il terzo si calcola.</li><li>Lascia acceso «Pieno» se hai riempito il serbatoio (serve per il consumo) e <b>Salva</b>.</li></ol></div>
+<div class="tut"><h3>Aggiornare i km</h3><p class="quando">Ogni tanto, anche senza fare il pieno.</p><ol class="passi"><li>In Home tocca <b>Km</b>.</li><li>Scrivi i km che leggi sul cruscotto e salva. Le stime delle scadenze diventano più precise.</li></ol></div>
+<div class="tut"><h3>Segnare una spesa veloce</h3><img src="img/14-spesa-veloce.png" alt=""><p class="quando">Pedaggio, parcheggio, lavaggio, multa.</p><ol class="passi"><li>In Home tocca <b>Spesa</b>.</li><li>Scegli che spesa è, scrivi importo e data.</li><li>Per una multa non ancora pagata spegni «Multa già pagata»: DoctorCar ti ricorda di pagarla entro 5 giorni con lo sconto del 30%.</li><li>Tocca <b>Segna</b>.</li></ol></div>
+<div class="tut"><h3>Impostare il budget del mese</h3><img src="img/06-spese.png" alt=""><p class="quando">Per tenere sotto controllo le spese.</p><ol class="passi"><li>Apri <b>Spese</b> → <b>Imposta il budget</b>.</li><li>Scrivi quanto vuoi spendere al mese.</li><li>Da ora vedi quanto hai speso, la stima a fine mese e un avviso se lo superi.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Gomme e controlli</h2>
+<div class="tut"><h3>Registrare le gomme</h3><p class="quando">Estive, invernali o 4 stagioni.</p><ol class="passi"><li>Apri la scheda dell'auto → <b>Treno di gomme</b>.</li><li>Scegli il tipo, scrivi misura, marca e <b>DOT</b> (le 4 cifre sul fianco: settimana e anno).</li><li>Indica se sono montate o in garage e salva.</li></ol></div>
+<div class="tut"><h3>Cambio gomme di stagione</h3><p class="quando">A novembre e ad aprile.</p><ol class="passi"><li>Segna un intervento con la voce <b>Monta le gomme invernali</b> (o <b>Togli le gomme invernali</b>).</li><li>Le gomme si scambiano da sole: le montate vanno in garage e viceversa, con i km giusti.</li></ol></div>
+<div class="tut"><h3>Fare i controlli veloci</h3><img src="img/13-controlli.png" alt=""><p class="quando">Una volta al mese, 2 minuti.</p><ol class="passi"><li>Dalla scheda dell'auto tocca <b>Controlli veloci</b> (o dalla notifica del 15 del mese).</li><li>Spunta quello che hai controllato; se qualcosa non va, scrivilo.</li><li>Tocca <b>Fatto</b>.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Parcheggio</h2>
+<div class="tut"><h3>Ricordare dove hai parcheggiato</h3><img src="img/01-home.png" alt=""><p class="quando">Appena sceso dall'auto.</p><ol class="passi"><li>In Home tocca <b>Ho parcheggiato qui</b>.</li><li>Aspetta che la precisione sia buona (o <b>Aggiorna la posizione</b>); aggiungi una nota (piano, colonna).</li><li>Salva. Per tornare: <b>Portami lì</b> apre le mappe.</li></ol></div>
+<div class="tut"><h3>Sosta a tempo</h3><p class="quando">Parcheggio a pagamento o disco orario.</p><ol class="passi"><li>Nel riquadro del parcheggio tocca <b>Sosta a tempo</b> e scegli quando scade.</li><li>DoctorCar avvisa 10 minuti prima e alla scadenza.</li><li>Quando riparti tocca <b>Ho ripreso l'auto</b>.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Meccanico, ricambi e viaggi</h2>
+<div class="tut"><h3>Segnare una cosa da far vedere al meccanico</h3><img src="img/18-meccanico-ricambi.png" alt=""><p class="quando">Senti un rumore o si accende una spia.</p><ol class="passi"><li>Apri la scheda dell'auto (Veicoli → l'auto).</li><li>In «Da far vedere al meccanico» tocca <b>Cosa da far vedere</b>.</li><li>Scrivi cosa c'è e tocca <b>Salva</b>. In officina, «Per l'officina» la manda insieme alla storia dell'auto.</li></ol></div>
+<div class="tut"><h3>Segnare che è stata sistemata</h3><p class="quando">Il meccanico ha risolto.</p><ol class="passi"><li>Dopo aver segnato l'intervento, nella finestra <b>Già che ci sei</b> accendi la cosa sistemata e tocca <b>Fatto</b>.</li><li>Oppure tocca la riga nella scheda dell'auto e accendi <b>Sistemato</b>.</li></ol></div>
+<div class="tut"><h3>Tenere il conto dei ricambi in garage</h3><img src="img/19-ricambi.png" alt=""><p class="quando">Olio, lampadine, spazzole che tieni da parte.</p><ol class="passi"><li>Nella scheda dell'auto tocca <b>Ricambio</b> (o Veicoli → <b>Magazzino</b> → <b>Ricambio</b>, e scegli l'auto).</li><li>Scrivi cosa, quanti, come si conta e, se vuoi, «Avvisami quando ne restano» e «Lo usi per».</li><li>Con <b>−</b> e <b>+</b> aggiorni la quantità; sotto il minimo compare <b>Da ricomprare</b>.</li></ol></div>
+<div class="tut"><h3>Fare la lista della spesa dei ricambi</h3><p class="quando">Prima di andare al negozio di ricambi.</p><ol class="passi"><li>Veicoli → <b>Magazzino</b>.</li><li>Tocca <b>Lista della spesa</b>: c'è tutto quello finito o sotto il minimo, auto per auto.</li><li>Mandala a chi vuoi o incollala dove ti serve.</li></ol></div>
+<div class="tut"><h3>Sapere quanto costa un viaggio</h3><img src="img/21-viaggio-risultato.png" alt=""><p class="quando">Prima di partire, o per dividere le spese.</p><ol class="passi"><li>In <b>Pieno</b> tocca <b>Quanto costa il viaggio</b>.</li><li>Scrivi i km, le persone, i pedaggi e scegli se è andata e ritorno.</li><li>Tocca <b>Calcola</b>: vedi il totale e quanto spende ognuno.</li></ol></div>
+</div>
+<div class="gruppo"><h2>Avvisi</h2>
+<div class="tut"><h3>Accendere e regolare gli avvisi</h3><p class="quando">Nell'app Android.</p><ol class="passi"><li>Impostazioni → <b>Avvisi</b> → accendi «Avvisi sulle scadenze» e permetti le notifiche.</li><li>Scegli il primo avviso (30, 14 o 7 giorni prima) e l'ora.</li><li>Se vuoi, accendi «Quanti km ha l'auto?» il 1° del mese e i controlli veloci il 15.</li></ol></div>
+<div class="tut"><h3>Rispondere da una notifica</h3><p class="quando">Senza aprire l'app.</p><ol class="passi"><li><b>Fatto oggi</b>: segna l'intervento con la data di oggi.</li><li><b>Rimanda di una settimana</b>: l'avviso torna fra 7 giorni.</li><li>Il 1° del mese scrivi i km direttamente nella notifica.</li></ol></div>
+<div class="tut"><h3>Widget e scorciatoie</h3><p class="quando">Per fare prima.</p><ol class="passi"><li>Tieni premuta l'icona di DoctorCar: compaiono Rifornimento, Km, Intervento.</li><li>Oppure aggiungi il <b>widget</b> DoctorCar alla schermata del telefono: mostra la prossima scadenza e i tasti.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Più telefoni</h2>
+<div class="tut"><h3>Collegare un secondo telefono</h3><p class="quando">Per avere gli stessi dati in famiglia.</p><ol class="passi"><li>Sul primo telefono: Impostazioni → <b>Sincronizzazione</b> → <b>Collega un altro dispositivo</b>.</li><li>Sul secondo: <b>Ho già DoctorCar su un altro telefono</b> (o <b>Ho già un codice</b>) e inquadra il QR.</li><li>Tieni i due telefoni nella stessa Wi‑Fi: i dati si allineano da soli.</li></ol></div>
+<div class="tut"><h3>Scrivere chi ha segnato</h3><p class="quando">Più persone sugli stessi dati.</p><ol class="passi"><li>Impostazioni → <b>Dati</b> → scrivi il tuo nome.</li><li>Da ora interventi e rifornimenti ricordano chi li ha segnati; nelle sezioni si filtra per persona.</li></ol></div>
+<div class="tut"><h3>Telefono perso o venduto</h3><p class="quando">Per escluderlo.</p><ol class="passi"><li>Da un altro telefono: Impostazioni → Sincronizzazione → tocca quel telefono → <b>Dimentica</b>.</li><li>Sul telefono da vendere: Impostazioni → Dati → <b>Cancella tutto da questo dispositivo</b>.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Copia di sicurezza e file</h2>
+<div class="tut"><h3>Fare una copia di sicurezza</h3><img src="img/15-impostazioni.png" alt=""><p class="quando">Prima di cambiare telefono, e ogni tanto.</p><ol class="passi"><li>Impostazioni → <b>Dati</b> → <b>Esporta copia</b> (conferma con impronta o PIN).</li><li>Scegli una password di almeno 12 caratteri e dove salvare il file.</li><li>Conserva file e password in posti sicuri.</li></ol></div>
+<div class="tut"><h3>Riprendere una copia</h3><p class="quando">Su un telefono nuovo.</p><ol class="passi"><li>Impostazioni → <b>Dati</b> → <b>Importa copia</b> e scegli il file.</li><li>Scrivi la password.</li><li>Scegli <b>Unisci</b> (aggiunge) o <b>Sostituisci</b> (rimpiazza).</li></ol></div>
+<div class="tut"><h3>Copia automatica ogni settimana</h3><p class="quando">Per non pensarci più (app Android).</p><ol class="passi"><li>Impostazioni → <b>Dati</b> → <b>Scegli la cartella</b> (anche una cartella di Drive).</li><li>Scrivi la password una volta: resta protetta nel telefono.</li><li>Ogni settimana DoctorCar salva una copia cifrata e tiene le ultime 5.</li></ol></div>
+<div class="tut"><h3>Portare i dati da un'altra app</h3><p class="quando">Da Fuelio, Drivvo, Simply Auto, aCar, Fuelly.</p><ol class="passi"><li>Nell'altra app esporta i dati in CSV.</li><li>In DoctorCar: Impostazioni → <b>Dati</b> → <b>Importa da un'altra app (CSV)</b> e scegli il file.</li><li>Controlla l'anteprima e conferma: i doppioni vengono saltati.</li></ol></div>
+<div class="tut"><h3>Libretto in PDF e foglio per l'officina</h3><p class="quando">Per vendere l'auto o andare dal meccanico.</p><ol class="passi"><li>Apri la scheda dell'auto.</li><li><b>Libretto in PDF</b>: tutta la manutenzione con date e km, da condividere o salvare.</li><li><b>Per l'officina</b>: un foglio con l'auto e gli ultimi lavori da mandare al meccanico.</li></ol></div>
+</div>
+
+<div class="gruppo"><h2>Aspetto e sicurezza</h2>
+<div class="tut"><h3>Tema, testo e vibrazione</h3><img src="img/16-tema-scuro.png" alt=""><p class="quando">Per adattare l'app.</p><ol class="passi"><li>Impostazioni → <b>Aspetto</b>: tema (Automatico, Chiaro, Scuro), dimensione del testo, animazioni, fluidità dello schermo.</li><li>Impostazioni → <b>Vibrazione</b>: Leggera, Normale o Forte, e quando vibrare.</li></ol></div>
+<div class="tut"><h3>Aprire l'app con l'impronta</h3><p class="quando">Per proteggere i dati.</p><ol class="passi"><li>Impostazioni → <b>Sicurezza</b> → <b>Apri l'app con l'impronta</b>.</li><li>Da ora all'apertura e al ritorno nell'app si chiede impronta o PIN del telefono.</li></ol></div>
+<div class="tut"><h3>Segnalare un problema o un'idea</h3><p class="quando">Per scriverci.</p><ol class="passi"><li>Impostazioni → <b>Segnala un problema o un'idea</b> (in fondo).</li><li>Descrivi cosa è successo o cosa vorresti; lascia le informazioni tecniche.</li><li>Invia con la tua app di posta.</li></ol></div>
+<div class="tut"><h3>Cancellare tutto</h3><p class="quando">Prima di vendere o regalare il telefono.</p><ol class="passi"><li>Impostazioni → <b>Dati</b> → <b>Cancella tutto da questo dispositivo</b>.</li><li>Conferma con impronta o PIN: spariscono dati, foto, chiavi e collegamenti.</li></ol></div>
+</div>
+</body></html>

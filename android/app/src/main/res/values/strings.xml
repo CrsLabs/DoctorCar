@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DoctorCar</string>
+    <string name="title_activity_main">DoctorCar</string>
+    <string name="package_name">it.doctorcar.app</string>
+    <string name="custom_url_scheme">it.doctorcar.app</string>
+    <string name="widget_descrizione_compatto">Una riga: prossima scadenza e tre tasti con le icone</string>
+    <string name="widget_descrizione">Le prossime scadenze di tutte le tue auto, i km e tre tasti: rifornimento, km, intervento</string>
+    <string name="sc_rifornimento">Rifornimento</string>
+    <string name="sc_rifornimento_lungo">Nuovo rifornimento</string>
+    <string name="sc_km">Km</string>
+    <string name="sc_km_lungo">Aggiorna i km</string>
+    <string name="sc_intervento">Intervento</string>
+    <string name="sc_intervento_lungo">Nuovo intervento</string>
+    <string name="sc_parcheggio">Parcheggio</string>
+    <string name="sc_parcheggio_lungo">Ho parcheggiato qui</string>
+</resources>

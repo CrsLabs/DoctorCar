@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Testi di Android in inglese (scorciatoie dell'icona, descrizione dei widget): li sceglie Android in base alla lingua del telefono -->
+<resources>
+    <string name="widget_descrizione_compatto">One line: next deadline and three icon buttons</string>
+    <string name="widget_descrizione">The next deadlines of all your cars, the mileage and three buttons: refuel, mileage, service</string>
+    <string name="sc_rifornimento">Refuel</string>
+    <string name="sc_rifornimento_lungo">New refuel</string>
+    <string name="sc_km">Mileage</string>
+    <string name="sc_km_lungo">Update mileage</string>
+    <string name="sc_intervento">Service</string>
+    <string name="sc_intervento_lungo">New service</string>
+    <string name="sc_parcheggio">Parking</string>
+    <string name="sc_parcheggio_lungo">I parked here</string>
+</resources>

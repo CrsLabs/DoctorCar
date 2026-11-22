@@ -1,0 +1,11 @@
+{
+  "appId": "it.doctorcar.app",
+  "appName": "DoctorCar",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": false,
+    "webContentsDebuggingEnabled": false
+  },
+  "backgroundColor": "#1e293b"
+}

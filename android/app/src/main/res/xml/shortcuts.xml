@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tenendo premuta l'icona dell'app compaiono tre scorciatoie: aprono direttamente il modulo giusto -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="rifornimento" android:enabled="true" android:icon="@drawable/ic_sc_pompa"
+        android:shortcutShortLabel="@string/sc_rifornimento" android:shortcutLongLabel="@string/sc_rifornimento_lungo">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="it.doctorcar.app" android:targetClass="it.doctorcar.app.MainActivity">
+            <extra android:name="scorciatoia" android:value="rifornimento" />
+        </intent>
+    </shortcut>
+    <shortcut android:shortcutId="km" android:enabled="true" android:icon="@drawable/ic_sc_km"
+        android:shortcutShortLabel="@string/sc_km" android:shortcutLongLabel="@string/sc_km_lungo">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="it.doctorcar.app" android:targetClass="it.doctorcar.app.MainActivity">
+            <extra android:name="scorciatoia" android:value="km" />
+        </intent>
+    </shortcut>
+    <shortcut android:shortcutId="intervento" android:enabled="true" android:icon="@drawable/ic_sc_chiave"
+        android:shortcutShortLabel="@string/sc_intervento" android:shortcutLongLabel="@string/sc_intervento_lungo">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="it.doctorcar.app" android:targetClass="it.doctorcar.app.MainActivity">
+            <extra android:name="scorciatoia" android:value="intervento" />
+        </intent>
+    </shortcut>
+    <shortcut android:shortcutId="parcheggio" android:enabled="true" android:icon="@drawable/ic_sc_parcheggio"
+        android:shortcutShortLabel="@string/sc_parcheggio" android:shortcutLongLabel="@string/sc_parcheggio_lungo">
+        <intent android:action="android.intent.action.VIEW" android:targetPackage="it.doctorcar.app" android:targetClass="it.doctorcar.app.MainActivity">
+            <extra android:name="scorciatoia" android:value="parcheggio" />
+        </intent>
+    </shortcut>
+</shortcuts>

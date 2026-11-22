@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icona piccola delle notifiche: l'auto di DoctorCar, solo sagoma (Android la colora da sé) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp" android:viewportWidth="100" android:viewportHeight="100">
+    <path android:fillColor="#FFFFFF" android:fillType="evenOdd"
+        android:pathData="M6 66 C6 54 11 50 20 49 L31 48 L42 31 C44 29 46 28 49 28 L70 28 C73 28 76 29 78 32 L88 48 C94 49 96 52 96 58 L96 68 C96 70 94 72 92 72 L6 72 Z M46 35 L49.500 35 L49.500 46 L37 46 Z M53.500 35 L69 35 C70.500 35 71.500 36 72.500 37.500 L77.500 46 L53.500 46 Z" />
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M27 66 a11 11 0 1 0 0.01 0 Z M74 66 a11 11 0 1 0 0.01 0 Z" />
+</vector>
