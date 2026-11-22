@@ -5,7 +5,7 @@
 <h1 align="center">DoctorCar</h1>
 <p align="center"><b>Il libretto di manutenzione dell'auto, anche senza internet.</b></p>
 
-<p align="center">Android 10+ · v2.4.3 · Italiano e inglese · Gratis e open source (GPL-3.0)</p>
+<p align="center">Android 10+ · v2.4.4 · Italiano e inglese · Gratis e open source (GPL-3.0)</p>
 
 ---
 
