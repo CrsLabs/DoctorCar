@@ -1,0 +1,7 @@
+{
+ "v2.4.6": "Notifications now appear at the bottom of the screen, above the bar, and close with a swipe.",
+ "v2.4.5": "Corrected English sentences (updates and due-date reminders).",
+ "v2.4.4": "More robust sync between phones and some corrected English sentences (parking, due dates).",
+ "v2.4.3": "Light and dark theme change in one go, without flicker; with the light theme the top bar with the time is now readable.",
+ "v2.4.2": "First public version: automatic updates from GitHub, English and Italian, user guide and tutorials."
+}
