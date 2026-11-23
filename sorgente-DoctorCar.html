@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- App completamente offline: nessuna risorsa esterna. Questa regola impedisce qualsiasi connessione di rete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-j1oGf2xl/oF+kzQPzG1KQbNe+rjUtnME8wcp7+jWx9U='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-a+qcl6BEWvrD28UJPZWJjQ83zqsUFg1vHEKI3Bw3xRQ='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="google" content="notranslate">
   <meta name="theme-color" content="#1e293b">
@@ -908,7 +908,7 @@ html.con-tastiera #barraNav { display: none; }
     // cose diverse si possono unire senza perdite (vince la modifica più recente, record per record).
     // Le cancellazioni restano come «lapidi» (del: true), perché anche gli altri dispositivi le ricevano.
     // ======================================================================
-    const VERSIONE = '2.4.4';
+    const VERSIONE = '2.4.5';
     const $ = id => document.getElementById(id);
     const S = window.localStorage;
     const K_DATI = 'doctorcar_dati', K_DISP = 'doctorcar_dispositivo', K_COPIA = 'doctorcar_ultima_copia';
@@ -1966,6 +1966,7 @@ html.con-tastiera #barraNav { display: none; }
   "documento casello": "document toll tag",
   "documento centro traffico limitato": "document restricted zone permit",
   "documento rinnovo guida": "document renewal driving licence",
+  "domani (# §). Se sì, lo segno in un attimo.": "tomorrow (# §). If so, I'll record it in a moment.",
   "elimina dati reset azzera": "delete data reset erase wipe",
   "es. #": "e.g. #",
   "es. # oppure #:#": "e.g. # or #:#",
@@ -2021,6 +2022,7 @@ html.con-tastiera #barraNav { display: none; }
   "non segnata: conto dall'immatricolazione": "not recorded: counting from registration",
   "notifica # pressione olio": "notification # pressure oil",
   "notifiche promemoria ora anticipo giorni prima": "notifications reminders time advance days before alerts",
+  "oggi (# §). Se sì, lo segno in un attimo.": "today (# §). If so, I'll record it in a moment.",
   "ogni # km (*": "every # km (*",
   "paia": "pairs",
   "parcheggio posizione sosta mappa gps": "parking location parked map gps where",
@@ -2045,6 +2047,8 @@ html.con-tastiera #barraNav { display: none; }
   "scaduta": "overdue",
   "scaduta da # giorni (# §)": "overdue by # days (# §)",
   "scaduta da # giorni (# §). Se sì, lo segno in un attimo.": "overdue by # days (# §). If so, I'll record it in a moment.",
+  "scaduta da # mesi (# §). Se sì, lo segno in un attimo.": "overdue by # months (# §). If so, I'll record it in a moment.",
+  "scaduta ieri (# §). Se sì, lo segno in un attimo.": "overdue since yesterday (# §). If so, I'll record it in a moment.",
   "scaduta il *": "overdue since *",
   "scritte grandi caratteri font leggere": "text big letters font read size",
   "solo oggi": "today only",
@@ -2060,8 +2064,10 @@ html.con-tastiera #barraNav { display: none; }
   "taniche": "jerrycans",
   "tra # anni (# §)": "in # years (# §)",
   "tra # giorni (# §)": "in # days (# §)",
+  "tra # giorni (# §). Se sì, lo segno in un attimo.": "in # days (# §). If so, I'll record it in a moment.",
   "tra # mesi (# §)": "in # months (# §)",
   "tra # mesi (# §) · mancano # km": "in # months (# §) · # km to go",
+  "tra # mesi (# §). Se sì, lo segno in un attimo.": "in # months (# §). If so, I'll record it in a moment.",
   "treni di gomme": "sets of tyres",
   "tutte in regola": "all up to date",
   "un litro": "a litre",
@@ -2084,8 +2090,8 @@ html.con-tastiera #barraNav { display: none; }
   "· spese registrate": "· expenses recorded",
   "· tuo": "· yours",
   "È il giorno della scadenza.": "It's the due day.",
-  "È uscita DoctorCar #.#.#": "DoctorCar #.#.# is out",
-  "È uscita DoctorCar *": "DoctorCar * is out",
+  "È uscita DoctorCar #.#": "DoctorCar #.# is out",
+  "È uscita DoctorCar #.# (# MB).": "DoctorCar #.# is out (# MB).",
   "— finito": "— finished",
   "— ne resta *": "— left: *",
   "€/kWh medio": "average €/kWh",
