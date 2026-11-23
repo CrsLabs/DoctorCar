@@ -1,8 +1,8 @@
 {
  "pacchetto": "it.doctorcar.app",
- "versionCode": 25,
- "versione": "2.4.4",
- "apk": "DoctorCar-2.4.4.apk",
- "sha256": "0067002eaef48613c6a6ed79aa84f2783ad581b82bb7945b0bddf0a165d98422",
- "novita": "Sincronizzazione fra telefoni più robusta e alcune frasi inglesi corrette (parcheggio, scadenze)."
+ "versionCode": 26,
+ "versione": "2.4.5",
+ "apk": "DoctorCar-2.4.5.apk",
+ "sha256": "96e553b68e1946578a015e81b1d0c45441725f9b66aa957fceb04dcd445dbbbf",
+ "novita": "Frasi inglesi corrette (aggiornamenti e promemoria delle scadenze)."
 }
