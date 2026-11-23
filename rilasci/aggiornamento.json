@@ -1,8 +1,8 @@
 {
  "pacchetto": "it.doctorcar.app",
- "versionCode": 26,
- "versione": "2.4.5",
- "apk": "DoctorCar-2.4.5.apk",
- "sha256": "96e553b68e1946578a015e81b1d0c45441725f9b66aa957fceb04dcd445dbbbf",
- "novita": "Frasi inglesi corrette (aggiornamenti e promemoria delle scadenze)."
+ "versionCode": 27,
+ "versione": "2.4.6",
+ "apk": "DoctorCar-2.4.6.apk",
+ "sha256": "57faa2fd386d9980045adb9c38dc9f57c615f69fbd2ae8f971897ab033c99a6c",
+ "novita": "Le notifiche compaiono in basso e si chiudono strisciandole con il dito."
 }
