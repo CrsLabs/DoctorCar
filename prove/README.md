@@ -26,5 +26,6 @@ python3 -m http.server 8785 --bind 127.0.0.1 -d www &   # Android app page (www/
 | `novita23.js` | The 2.3 features: list for the mechanic (also on the garage sheet), spare parts in the garage for each car with «To buy again», stock with shopping list, «While you're at it» after a job, trip cost. | `node prove/novita23.js` |
 | `veleno.js` | «Poisoned» data with HTML in every field: nothing must come to life. | `node prove/veleno.js` |
 | `robot.js` | Presses **every** button of every section and window (about 900), in the web page and in the simulated app, answering «No» to destructive questions: reports errors, windows Back doesn't close, buttons that can't be pressed and pages that overflow. Takes about ten minutes (`PROGRESSO=1` to watch it progress). | `node prove/robot.js` |
+| `notifiche.js` | Messages appear at the bottom, just above the bar, and close by swiping them sideways or down (web page and app, animations on and off). | `node prove/notifiche.js` |
 
 Expected result: 0 failed, no errors in the page. Results (screenshots, sample backup) go to `prove/risultati/` (not in git).

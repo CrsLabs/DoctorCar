@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- App completamente offline: nessuna risorsa esterna. Questa regola impedisce qualsiasi connessione di rete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-a+qcl6BEWvrD28UJPZWJjQ83zqsUFg1vHEKI3Bw3xRQ='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-UeEGUlkGUKZ/iGOanwWAW22UNTSA+uzWrnyvLqjJdZg='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="google" content="notranslate">
   <meta name="theme-color" content="#1e293b">
@@ -379,7 +379,7 @@ input.data-nascosta { position: absolute !important; opacity: 0 !important; poin
 #fotoConta { flex: 1; text-align: center; font-size: 13px; font-weight: 700; color: var(--testo2); }
 /* messaggio unico dell'app */
 /* sotto l'intestazione: così il suo «Chiudi» non copre l'ingranaggio delle Impostazioni */
-#avviso { position: fixed; left: 12px; right: 12px; top: calc(74px + env(safe-area-inset-top)); z-index: 100; pointer-events: none; }
+#avviso { position: fixed; left: 12px; right: 12px; bottom: calc(90px + env(safe-area-inset-bottom)); z-index: 100; pointer-events: none; }   /* in basso, sopra la barra (posizionaInBasso la mette al punto giusto) */
 #avviso > div { max-width: 36rem; margin: 0 auto; display: flex; align-items: flex-start; gap: 12px; border-radius: 12px; padding: 12px; font-size: 14px; background: var(--riquadro); color: var(--testo); border: 1px solid var(--bordo); border-left-width: 5px; box-shadow: 0 12px 30px -8px rgb(0 0 0 / .45); }
 html[data-tema="chiaro"] #avviso > div { background: #fff; }
 #avviso button { pointer-events: auto; width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
@@ -2643,9 +2643,10 @@ html.con-tastiera #barraNav { display: none; }
       $('avvisoIcona').innerHTML = ICONE_ESITO[tipo];
       el.dataset.tipo = tipo;
       el.setAttribute('aria-live', tipo === 'errore' ? 'assertive' : 'polite');
+      posizionaInBasso(el);
       el.classList.remove('hidden');
       if (tipo === 'ok') vibra('successo'); else if (tipo === 'errore') vibra('avviso');   // un'informazione non vibra
-      if (animazioniAttive() && el.animate) el.animate([{ opacity: 0, transform: 'translateY(-26px) scale(0.96)' }, { opacity: 1, transform: 'none' }], { duration: 560, easing: 'cubic-bezier(0.32, 0.72, 0, 1)' });
+      if (animazioniAttive() && el.animate) el.animate([{ opacity: 0, transform: 'translateY(26px) scale(0.96)' }, { opacity: 1, transform: 'none' }], { duration: 560, easing: 'cubic-bezier(0.32, 0.72, 0, 1)' });   // sale piano dal basso
       clearTimeout(avviso.timer);
       // gli errori restano più a lungo, ma spariscono da soli: altrimenti coprirebbero i tasti sotto finché non li chiudi
       avviso.timer = setTimeout(nascondiAvviso, tipo === 'ok' ? 3500 : tipo === 'errore' ? 9000 : 6000);
@@ -2655,9 +2656,73 @@ html.con-tastiera #barraNav { display: none; }
       if (el.classList.contains('hidden')) return;
       clearTimeout(avviso.timer);
       if (!(animazioniAttive() && el.animate)) { el.classList.add('hidden'); return; }
-      const a = el.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-22px) scale(0.97)' }], { duration: 500, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)', fill: 'forwards' });
+      const a = el.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(22px) scale(0.97)' }], { duration: 500, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)', fill: 'forwards' });
       a.onfinish = () => { el.classList.add('hidden'); a.cancel(); };
     }
+    // il messaggio sta in basso, appena sopra la barra (o sopra il bordo dello schermo, se la barra non c'è)
+    function posizionaInBasso(el) {
+      const b = $('barraNav'); let alto = 0;
+      if (b && getComputedStyle(b).display !== 'none') { const r = b.getBoundingClientRect(); if (r.height) alto = innerHeight - r.top; }
+      el.style.bottom = alto ? (alto + 10) + 'px' : 'calc(16px + env(safe-area-inset-bottom))';
+    }
+    function scorriPerChiudere(el, chiudiSubito, verso, passante) {
+      if (!el) return;
+      // «passante»: il messaggio non blocca i tocchi (i comandi sotto restano premibili); lo scorrimento si riconosce guardando
+      // il dito sul documento. Altrimenti il messaggio riceve i tocchi lui stesso. Si può partire anche da sopra un tasto:
+      // se il dito si muove diventa uno scorrimento, se sta fermo è un tocco normale.
+      let x0 = 0, y0 = 0, t0 = 0, dx = 0, dy = 0, giu = false, mosso = false, pid = null;
+      const carta = () => (el.firstElementChild && el.firstElementChild.tagName === 'DIV') ? el.firstElementChild : el;
+      const dentro = (x, y) => { if (el.classList.contains('hidden')) return false; const r = carta().getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom; };
+      const inizia = (x, y, id) => { giu = true; mosso = false; pid = id; x0 = x; y0 = y; t0 = Date.now(); dx = dy = 0; };
+      const muovi = (x, y, id) => {
+        if (!giu || id !== pid) return;
+        dx = x - x0; dy = y - y0;
+        if (!mosso) {
+          if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+          mosso = true; if (!passante) { try { el.setPointerCapture(pid); } catch (_) {} }
+        }
+        if (verso === 'su') dy = Math.min(dy, 12); else dy = Math.max(dy, -12);
+        el.style.transform = `translate(${dx}px, ${dy}px)`;
+        el.style.opacity = String(Math.max(0.15, 1 - Math.max(Math.abs(dx) / 260, Math.abs(dy) / 120)));
+      };
+      const fine = id => {
+        if (!giu || id !== pid) return;
+        giu = false;
+        if (!mosso) return;
+        if (!passante) {
+          try { el.releasePointerCapture(pid); } catch (_) {}
+          const ferma = ev => { ev.stopPropagation(); ev.preventDefault(); };   // il tocco che chiude lo scorrimento non preme il tasto sotto
+          el.addEventListener('click', ferma, { capture: true, once: true }); setTimeout(() => el.removeEventListener('click', ferma, true), 400);
+        }
+        const rapido = Date.now() - t0 < 300;   // un colpo di dito veloce basta anche se corto
+        const via = Math.abs(dx) > (rapido ? 24 : 50) || (verso === 'su' ? dy < (rapido ? -14 : -24) : dy > (rapido ? 14 : 24));
+        const da = { transform: el.style.transform || 'none', opacity: el.style.opacity || '1' };
+        if (via) {
+          const fuori = Math.abs(dx) > Math.abs(dy) ? `translate(${dx > 0 ? 120 : -120}vw, 0px)` : `translate(0px, ${verso === 'su' ? -120 : 120}px)`;
+          const a = el.animate ? el.animate([da, { transform: fuori, opacity: '0' }], { duration: 220, easing: 'ease-in', fill: 'forwards' }) : null;
+          const fatto = () => { el.style.transform = ''; el.style.opacity = ''; if (a) a.cancel(); chiudiSubito(); };
+          if (a) a.onfinish = fatto; else fatto();
+        } else {
+          el.style.transform = ''; el.style.opacity = '';
+          if (el.animate) el.animate([da, { transform: 'none', opacity: '1' }], { duration: 260, easing: 'cubic-bezier(0.32, 0.72, 0, 1)' });
+        }
+      };
+      if (!passante) {
+        el.style.touchAction = 'none';
+        el.addEventListener('pointerdown', e => { if (e.pointerType === 'mouse' && e.button !== 0) return; inizia(e.clientX, e.clientY, e.pointerId); });
+        el.addEventListener('pointermove', e => muovi(e.clientX, e.clientY, e.pointerId));
+        el.addEventListener('pointerup', e => fine(e.pointerId)); el.addEventListener('pointercancel', e => fine(e.pointerId));
+        return;
+      }
+      const opz = { capture: true, passive: true };
+      document.addEventListener('touchstart', e => { const t = e.touches[0]; if (e.touches.length === 1 && dentro(t.clientX, t.clientY)) inizia(t.clientX, t.clientY, 't'); }, opz);
+      document.addEventListener('touchmove', e => { const t = e.touches[0]; if (t) muovi(t.clientX, t.clientY, 't'); }, opz);
+      document.addEventListener('touchend', () => fine('t'), opz); document.addEventListener('touchcancel', () => fine('t'), opz);
+      document.addEventListener('mousedown', e => { if (e.button === 0 && dentro(e.clientX, e.clientY)) inizia(e.clientX, e.clientY, 'm'); }, opz);
+      document.addEventListener('mousemove', e => muovi(e.clientX, e.clientY, 'm'), opz);
+      document.addEventListener('mouseup', () => fine('m'), opz);
+    }
+    scorriPerChiudere($('avviso'), () => { clearTimeout(avviso.timer); const e = $('avviso'); if (e.getAnimations) e.getAnimations().forEach(x => x.cancel()); e.classList.add('hidden'); }, 'giu', true);
 
     // ---------- finestre ----------
     const pila = [];   // finestre aperte, l'ultima è in primo piano
