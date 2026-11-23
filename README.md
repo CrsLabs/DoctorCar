@@ -3,206 +3,146 @@
 </p>
 
 <h1 align="center">DoctorCar</h1>
-<p align="center"><b>Il libretto di manutenzione dell'auto, anche senza internet.</b></p>
+<p align="center"><b>Your car's maintenance log, even without internet.</b></p>
 
-<p align="center">Android 10+ · v2.4.5 · Italiano e inglese · Gratis e open source (GPL-3.0)</p>
+<p align="center">Android 10+ · v2.4.5 · English and Italian · Free and open source (GPL-3.0)</p>
 
 ---
 
-## Installare
+## Install
 
-1. Apri la pagina **[Releases](../../releases/latest)** di questo repository dal telefono.
-2. Scarica il file `DoctorCar-….apk` e aprilo. La prima volta Android chiede di permettere l'installazione dal browser o dall'app File.
-3. Fatto. Le versioni successive arrivano da sole: DoctorCar controlla una volta a settimana se ce n'è una nuova (si può spegnere in Impostazioni → Aggiornamenti) e Android chiede sempre la conferma.
+1. Open the **[Releases](../../releases/latest)** page of this repository on your phone.
+2. Download the `DoctorCar-….apk` file and open it. The first time, Android asks you to allow installs from the browser or the Files app.
+3. Done. Later versions arrive by themselves: DoctorCar checks once a week for a new one (can be turned off in Settings → Updates) and Android always asks for confirmation.
 
-Si installa sopra la versione precedente senza perdere i dati. Serve **Android 10 o più recente**.
+It installs over the previous version without losing data. It needs **Android 10 or later**.
 
-## Cos'è
+## What it is
 
-DoctorCar tiene in ordine tutto quello che riguarda l'auto: **interventi**, **scadenze** (tagliando, revisione, bollo, assicurazione…), **rifornimenti** con i consumi e **spese**. Funziona **offline**: i dati restano sul tuo dispositivo, senza account e senza cloud.
+DoctorCar keeps everything about your car in order: **jobs** (services and repairs), **due dates** (service, MOT/inspection, road tax, insurance…), **fill-ups** with real fuel consumption, and **expenses**. It works **offline**: your data stays on your device, with no account and no cloud.
 
-Esiste in due forme dello stesso codice: una **pagina web** in un solo file da aprire dal PC, e un'**app Android** che può **sincronizzare** i dati tra più telefoni e tablet con **PairWood**, direttamente nella Wi‑Fi di casa.
-
-Stesso stile di DoctorWood: blu notte e ambra, tema chiaro e scuro, finestre dal basso, movimenti morbidi.
-
-## Per cosa è utile
-
-- **Non dimenticare più le scadenze**: revisione, bollo, assicurazione, tagliando, patente, Telepass, permesso ZTL. DoctorCar avvisa in tempo, conosce le regole italiane (revisione a fine mese, 15 giorni di tolleranza dell'assicurazione) e così si evitano more e multe.
-- **Sapere quanto costa davvero l'auto**: consumo vero fra due pieni, spese mese per mese, costo al chilometro, budget del mese e previsione dei prossimi 12 mesi.
-- **Avere tutta la storia dell'auto in tasca**: ogni intervento con data, km, officina, costo e foto della fattura; il **libretto in PDF** è utile quando si vende l'auto.
-- **Famiglie con più auto o più guidatori**: ognuno segna dal suo telefono, i dati restano uguali per tutti (senza cloud) e si vede chi ha fatto cosa.
-- **Le piccole cose di ogni giorno**: dove ho parcheggiato e quando scade la sosta, gomme invernali ed estive, controlli veloci del mese, multe da pagare con lo sconto.
+The same code comes in two forms: a single-file **web page** to open on a computer, and an **Android app** that can **sync** data between several phones and tablets with **PairWood**, directly over your home Wi‑Fi.
 
 <p align="center">
-  <img src="guida/img/01-home.png" alt="Home" width="190">
+  <img src="guida/img-en/01-home.png" alt="Home" width="190">
   &nbsp;
-  <img src="guida/img/04-scadenze.png" alt="Scadenze" width="190">
+  <img src="guida/img-en/04-scadenze.png" alt="Due dates" width="190">
   &nbsp;
-  <img src="guida/img/08-scheda-veicolo.png" alt="Scheda del veicolo" width="190">
-</p>
-<p align="center">
-  <img src="guida/img/05-rifornimenti.png" alt="Rifornimenti" width="190">
-  &nbsp;
-  <img src="guida/img/06-spese.png" alt="Spese" width="190">
-  &nbsp;
-  <img src="guida/img/09-nuovo-intervento.png" alt="Nuovo intervento" width="190">
+  <img src="guida/img-en/08-scheda-veicolo.png" alt="Vehicle card" width="190">
 </p>
 
-## Funzioni
+## What it's good for
 
-### Veicoli
-- Più auto (o moto): nome, marca, modello, targa (sempre maiuscola), alimentazione, prima immatricolazione, km.
-- **Nuovo veicolo con i dati importanti subito**: assicurazione, bollo, ultima revisione, ultimo tagliando, gomme invernali. Le scadenze nascono già complete, senza secondi passaggi.
-- Scheda dell'auto con km attuali, km l'anno, consumo medio, spese totali e scadenze.
+- **Never forget a due date**: inspection, road tax, insurance, service, driving licence, toll tag, restricted-zone permit. DoctorCar reminds you in time and knows the Italian rules (inspection valid to the end of the month, 15 days of insurance grace).
+- **Know what your car really costs**: real consumption between two fill-ups, expenses month by month, cost per kilometre, monthly budget and a 12‑month forecast.
+- **Your car's whole history in your pocket**: every job with date, km, garage, cost and invoice photos; the **PDF logbook** is handy when you sell the car.
+- **Families with several cars or drivers**: everyone records from their own phone, the data stays the same for everyone (without a cloud) and you can see who did what.
+- **Everyday things**: where you parked and when the parking time runs out, winter and summer tyres, quick monthly checks, fines to pay with the discount.
 
-### Interventi
-- Registro con data, km, **cosa è stato fatto** (anche più voci insieme: tagliando, olio, filtri, freni, gomme, distribuzione, batteria, revisione, bollo…), officina, costo, note.
-- Ricerca e raggruppamento per anno.
-- **Lista per il meccanico**: un rumore, una spia? Lo segni subito nella scheda dell'auto e finisce nel foglio per l'officina. Dopo l'intervento DoctorCar chiede cosa è stato sistemato.
-- **Ricambi in garage**: olio, lampadine, lavavetri… di ogni auto, nella sua scheda, con − e + per contarli; quando ne restano pochi compare «Da ricomprare». Dopo un intervento chiede quanti ne hai usati.
+## Features
 
-### Scadenze
-- A **data** e a **chilometri**, «quello che arriva prima».
-- Si aggiornano da sole quando segni l'intervento corrispondente; «Fatto» dalla scadenza apre l'intervento già compilato.
-- **Revisione**: la prima 4 anni dopo l'immatricolazione, poi ogni 2.
-- Con i km aggiornati ogni tanto, DoctorCar **stima la data** delle scadenze a chilometri.
-- In Home: scadute, in arrivo (entro 30 giorni o 1.000 km) e quelle da completare.
+### Vehicles
+- Several cars (or motorbikes): name, make, model, number plate, fuel, first registration, km.
+- **The important details straight away** when adding a car: insurance, road tax, last inspection, last service, winter tyres. Due dates are created complete.
+- A card for each car with current km, km per year, average consumption, total expenses and due dates.
 
-### Regole italiane e documenti
-- **Bollo** proposto da solo; costi di bollo, assicurazione e revisione già nel nuovo veicolo: si paga entro la fine del mese di immatricolazione.
-- **Assicurazione**: dopo la scadenza ricorda i **15 giorni di tolleranza** e avvisa l'ultimo giorno di copertura.
-- **Revisione** valida fino alla **fine del mese** di scadenza.
-- **Documenti e permessi** con un tocco: patente, carta carburante, Telepass (tuoi), garanzia e permesso ZTL (dell'auto). «Fatto» chiede la nuova data.
+### Jobs
+- A log with date, km, **what was done** (several items at once: service, oil, filters, brakes, tyres, timing belt, battery, inspection, road tax…), garage, cost, notes.
+- **List for the mechanic**: a noise, a warning light? Note it on the car's card and it goes on the sheet for the garage.
+- **Spare parts in the garage**: oil, bulbs, washer fluid… for each car, with − and + to count them; «To buy again» when running low.
 
-### Gomme, controlli, budget, spese veloci, parcheggio
-- **Storico delle gomme**: treni estivi, invernali o 4 stagioni con misura e DOT; km contati da soli, età dal DOT, avvisi oltre i 6 anni o i km consigliati. Segnando il cambio stagionale le gomme si **scambiano da sole**.
-- **Controlli veloci** il 15 di ogni mese (pressione, olio, luci, lavavetri…): «Tutto a posto» direttamente dalla notifica.
-- **Grafico del consumo** nel tempo, con i pieni anomali in rosso.
-- **Budget del mese** con la stima a fine mese e l'avviso se lo superi.
-- **Spesa veloce** (pedaggio, parcheggio, lavaggio, multa): la **multa** non pagata diventa un promemoria entro 5 giorni con lo **sconto del 30%** già calcolato.
-- **Dove ho parcheggiato**: la schermata «Dove sei» mostra indirizzo, precisione e coordinate; «Aggiorna la posizione» tiene la lettura più precisa, «Vedi sulla mappa» la controlla. Con la posizione spenta propone di accenderla, con il permesso negato di darlo. Il punto resta solo sul telefono; «Portami lì» apre le mappe, la **sosta a tempo** avvisa 10 minuti prima e alla scadenza.
+### Due dates
+- By **date** and by **kilometres**, «whichever comes first».
+- They update by themselves when you record the matching job; «Done» on a due date opens the job already filled in.
+- With the km updated now and then, DoctorCar **estimates the date** of km-based due dates.
 
-### Home e ricerca
-- **Home ordinata**: tre riquadri in alto (scadenze, speso nel mese, km), un'azione consigliata, «Da controllare» in un solo blocco, poi scadenze, interventi e veicoli.
-- **Ricerca** nella Home: impostazioni, funzioni, auto, scadenze e interventi; il risultato porta direttamente dove serve.
-- **Segnala allo sviluppatore** un problema o un'idea: il testo (con le informazioni tecniche, senza dati personali) passa alla tua app di posta.
+### Tyres, checks, budget, quick expenses, parking
+- **Tyre history** with size and DOT; km counted automatically, age from the DOT, seasonal swap.
+- **Quick checks** on the 15th of each month (pressure, oil, lights, washer…).
+- **Consumption chart** with abnormal fill-ups in red; **monthly budget**; **quick expense** (toll, parking, car wash, fine with the 30% discount).
+- **Where I parked**, «Take me there» and **timed parking** with reminders.
 
-### Meno tocchi
-- **Valori già pronti**: i km stimati dal tuo uso, officina e costo dell'ultima volta, prezzo al litro dell'ultimo pieno, «Come l'ultima volta» in un tocco.
-- **Rifornimento**: scrivi due fra litri, prezzo e importo, il terzo si calcola.
-- **Un'azione consigliata** in Home, con un solo tasto.
-- La barra «+ Intervento / + Rifornimento / Km» sta solo in Home; ogni sezione ha il suo tasto per aggiungere da lì.
-- Menu coerenti con il resto dell'app (non più quelli di Android) e tastiera che suggerisce e corregge.
-- **Avvisi in Home** quando qualcosa non torna: km più bassi di prima, consumo anomalo, nessun rifornimento da tempo, copia di sicurezza vecchia.
-- **Previsione delle spese** dei prossimi 12 mesi (scadenze con il costo dell'ultima volta + carburante).
-- **«Chi»**: con più persone sugli stessi dati, ogni intervento e rifornimento ricorda chi l'ha segnato e si filtra.
+### Home, search and fewer taps
+- A tidy **Home**: three tiles at the top, one suggested action, «To check» in one block, then due dates, jobs and vehicles.
+- **Search** across settings, features, cars, due dates and jobs.
+- **Ready values** (estimated km, last garage and cost, last price per litre), «Like last time» in one tap.
 
-### Aspetto e vibrazione (come DoctorWood)
-- **Apertura con il logo** (app Android): il logo nasce dal centro in dissolvenza, poi il nome; quindi la schermata sfuma e la Home entra, un riquadro dopo l'altro.
-- **Tema** automatico, chiaro o scuro; **animazioni** accendibili e spegnibili.
-- **Dimensione del testo**: Normale, Grande, Molto grande. Nell'app è lo zoom del testo di Android (cresce solo il testo, l'impaginazione va a capo).
-- **Fluidità dello schermo**: Automatica, Massima (fino a 120 Hz, dove lo schermo lo permette) o 60 Hz per risparmiare batteria.
-- **Vibrazione** brevi e secche: intensità a scelta (Leggera, Normale, Forte, con uno slider che si sente subito) e tre tipi che si accendono uno per uno: tasti e scelte, operazioni riuscite, avvisi.
+### Appearance and vibration
+- **Theme** automatic, light or dark (changes instantly, no flicker); **animations** on or off; **text size** Normal, Large, Very large; **screen smoothness** Automatic, Maximum (up to 120 Hz) or 60 Hz; **vibration** with strength and types.
 
-### Accesso con l'impronta (app Android)
-- All'apertura e quando torni nell'app, DoctorCar chiede **impronta o PIN del telefono**: finché non confermi la pagina resta coperta e nelle app recenti non si vede niente.
-- Non chiede niente se esci perché lo ha chiesto l'app (fotocamera, scelta di una foto o di un file, «Salva come», permessi), a meno di restare fuori più di 10 minuti.
-- Impronta o PIN servono anche per **esportare o importare una copia di sicurezza**, per esportare la tabella e per **cancellare tutto**.
-- Da Impostazioni → Sicurezza si può spegnere (serve l'impronta). Se il telefono non ha né impronta né PIN, l'app si apre senza chiedere niente.
-- La **copia di sicurezza** è sempre cifrata con la password scelta da chi la fa (AES‑256‑GCM, chiave dalla password con PBKDF2 600.000 giri): senza la password il file non si apre.
+### Fingerprint lock (Android app)
+- On opening and when you return, DoctorCar asks for the **fingerprint or phone PIN**; recent apps show nothing.
+- Also required to export or import a backup, export the spreadsheet and erase everything.
+- The **backup** is always encrypted with a password chosen by whoever makes it (AES‑256‑GCM, key from the password with PBKDF2, 600,000 rounds).
 
-### Avvisi sulle scadenze (app Android)
-- **Notifiche** prima di tagliando, revisione, bollo, assicurazione e delle altre scadenze, anche con l'app chiusa e dopo il riavvio del telefono.
-- Il primo avviso a scelta (30, 14 o 7 giorni prima), poi il giorno prima e il giorno stesso, all'ora che preferisci. Se la scadenza è passata, un promemoria a settimana per tre settimane.
-- Per le scadenze a chilometri l'avviso segue la data stimata dal tuo uso dell'auto.
-- **Tasti nella notifica**: «Fatto oggi» (registra l'intervento) e «Rimanda di una settimana»; il primo di ogni mese «Quanti km ha l'auto?» con risposta direttamente dalla notifica.
-- **Scorciatoie dell'icona** (tieni premuto) e **widget** nella Home di Android: prossima scadenza e tasti per rifornimento, km, intervento.
-- «Aggiungi al calendario» da ogni scadenza.
-- Si chiede una sola volta se si vogliono; da Impostazioni → Avvisi si cambiano o si spengono.
+### Due-date reminders (Android app)
+- **Notifications** before service, inspection, road tax, insurance and other due dates, even with the app closed and after a restart.
+- **Buttons in the notification**: «Done today» and «Remind me in a week»; on the 1st of each month «How many km?» answered right from the notification.
+- **Shortcuts** on the icon and **widgets** on the Android home screen.
 
-### Foto delle fatture
-- Fino a **12 foto per intervento**: fattura, scontrino, preventivo dell'officina. Si scattano con la fotocamera o si scelgono dalla galleria.
-- Vengono ridotte (lato lungo 1600 px) e restano sul dispositivo; con la sincronizzazione viaggiano sugli altri dispositivi abbinati, **cifrate**.
-- Visore a schermo intero con zoom; nell'elenco degli interventi si vede quante foto ha ognuno.
-- Entrano anche nella **copia di sicurezza** cifrata.
+### Invoice photos, fill-ups and expenses
+- Up to **12 photos per job**, reduced and kept on the device; with sync they travel to the other devices **encrypted**.
+- **Real consumption** (km/l and l/100 km), expenses by year and month, **cost per km**, **trip cost**, export to a **CSV spreadsheet**.
 
-### Rifornimenti e spese
-- Rifornimenti con quantità (litri, kWh o kg), importo e «pieno»: **consumo vero** fra due pieni (km/l e l/100 km) e prezzo medio.
-- Spese per anno e per mese (manutenzione, carburante, bollo/assicurazione/revisione, altro) e **€/km**.
-- **Quanto costa il viaggio**: scrivi i km (e se vuoi persone e pedaggi) e calcola carburante, totale e costo a testa con il consumo vero della tua auto.
-- Esportazione in **tabella CSV** (Excel, Fogli).
+### Data
+- **Encrypted backup** with photos, **Merge** or **Replace** on import; **import from another app** (CSV from Fuelio, Fuelly, Drivvo, Simply Auto, aCar…); **PDF logbook** and **sheet for the garage**; weekly **automatic backup** to a folder of your choice (Android app).
 
-### Dati
-- **Copia di sicurezza cifrata** (AES‑256‑GCM, PBKDF2‑SHA‑256 600.000) con le foto, da esportare e reimportare con **Unisci** o **Sostituisci** (le copie della versione 1.0 si importano ancora).
-- «Cancella tutto da questo dispositivo».
+### Sync (Android app)
+- **Direct with PairWood**: paired devices talk on the same Wi‑Fi, over TLS 1.3, with no cloud or account; pairing with a **code or QR**.
 
-### Dati: altre funzioni
-- **Importa da un'altra app** (CSV di Fuelio, Fuelly, Drivvo, Simply Auto, aCar e simili): colonne riconosciute da sole, nessun doppione.
-- **Libretto in PDF** di ogni veicolo (condividi o salva; sul computer si stampa) e **foglio per l'officina** da condividere.
-- **Copia automatica** (app Android): una copia cifrata a settimana in una cartella a scelta (anche su Drive), ultime 5 tenute; la password si scrive una volta e resta nel Keystore.
+### Languages, updates, help
+- **English and Italian** (Settings → Appearance → Language): the language changes at once; «Automatic» follows the phone.
+- **Updates** from GitHub once a week, with a switch: an update installs only if it has the same signature as the app and the published fingerprint.
+- **Report a problem or an idea** (bottom of Settings): prepares an email to crslabs.info@gmail.com that you send yourself.
 
-### Sincronizzazione (app Android)
-- **Diretta con PairWood**: i dispositivi abbinati si parlano nella stessa Wi‑Fi, in TLS 1.3, senza cloud né account.
-- Abbinamento con **codice o QR**; con tre o più dispositivi basta abbinarne uno (gli altri li presenta PairWood).
-- Ogni dispositivo scrive solo il proprio file cifrato; i dati si uniscono record per record (vince la modifica più recente, anche le cancellazioni). Le foto viaggiano come file cifrati a parte.
-- Elenco dei dispositivi abbinati, «Dimentica», «Scollega».
+## Security and privacy
+- The page **cannot connect to the internet**: CSP rule `connect-src 'none'`, only scripts with a sha256 hash, no external libraries.
+- The network is used only by PairWood's native code (towards paired devices) and by the update check (one read from GitHub a week, can be turned off). None of your data leaves the device. Details in [`PRIVACY.md`](PRIVACY.md).
+- Sync key and code are kept in the Android **Keystore**; `allowBackup=false`.
+- All incoming data (backup, sync) is cleaned field by field; all displayed data goes through `esc()`.
 
-### Lingue, aggiornamenti, aiuto
-- **Italiano e inglese** (Impostazioni → Aspetto → Lingua): la lingua cambia subito; «Automatica» segue il telefono.
-- **Aggiornamenti** da GitHub una volta a settimana, con interruttore: l'aggiornamento si installa solo se ha la stessa firma dell'app e la stessa impronta pubblicata.
-- **Segnala un problema o un'idea** (in fondo alle Impostazioni): prepara una mail a crslabs.info@gmail.com che spedisci tu.
-
-## Sicurezza e privacy
-- La pagina **non può collegarsi a internet**: regola CSP `connect-src 'none'`, solo script con impronta sha256, nessuna libreria esterna.
-- La rete la usano solo il codice nativo di PairWood (verso i dispositivi abbinati) e il controllo degli aggiornamenti (una lettura da GitHub a settimana, si può spegnere). Nessun dato tuo esce dal dispositivo. Dettagli in [`PRIVACY.md`](PRIVACY.md).
-- Chiave e codice della sincronizzazione custoditi con il **Keystore** di Android; `allowBackup=false`.
-- Ogni dato in entrata (copia, sincronizzazione) viene ripulito campo per campo; ogni dato mostrato passa da `esc()`.
-
-## Documentazione
-| Cosa | Dove |
+## Documentation
+| What | Where |
 |---|---|
-| Guida all'uso con immagini (PDF) | [`guida/DoctorCar-Guida.pdf`](guida/DoctorCar-Guida.pdf) |
-| Tutorial «come si fa» per ogni funzione (PDF) | [`guida/DoctorCar-Tutorial.pdf`](guida/DoctorCar-Tutorial.pdf) |
-| User guide in English (PDF) | [`guida/DoctorCar-Guide-EN.pdf`](guida/DoctorCar-Guide-EN.pdf) |
-| Tutorials in English (PDF) | [`guida/DoctorCar-Tutorials-EN.pdf`](guida/DoctorCar-Tutorials-EN.pdf) |
-| Prove automatiche | [`prove/LEGGIMI-PROVE.md`](prove/LEGGIMI-PROVE.md) |
-| Istruzioni per chi sviluppa | [`SVILUPPO.md`](SVILUPPO.md) |
-| Informativa sulla privacy | [`PRIVACY.md`](PRIVACY.md) |
+| User guide with screenshots (PDF) | [`guida/DoctorCar-Guide-EN.pdf`](guida/DoctorCar-Guide-EN.pdf) · Italian: [`guida/DoctorCar-Guida.pdf`](guida/DoctorCar-Guida.pdf) |
+| «How to» tutorials (PDF) | [`guida/DoctorCar-Tutorials-EN.pdf`](guida/DoctorCar-Tutorials-EN.pdf) · Italian: [`guida/DoctorCar-Tutorial.pdf`](guida/DoctorCar-Tutorial.pdf) |
+| Automated tests | [`prove/README.md`](prove/README.md) |
+| Developer notes | [`DEVELOPMENT.md`](DEVELOPMENT.md) |
+| Privacy policy | [`PRIVACY.md`](PRIVACY.md) |
 
-Guida e tutorial sono divisi nelle stesse sei parti (Iniziare, Manutenzione, Carburante e spese, Ogni giorno, I tuoi dati, Impostazioni e aiuto), con l'indice e i numeri di pagina. Le schermate si rifanno con `node guida/schermate.js` (e `node guida/schermate.js en` per l'inglese; dati d'esempio in `guida/dati-esempio.js`), i quattro PDF con `node guida/genera-guida.js`.
-
-## Struttura
+## Project layout
 ```
-sorgente-DoctorCar.html   la pagina (HTML, stile e script in un solo file)
-piattaforma-android.js    il livello Android (file, vibrazione, sincronizzazione PairWood)
-prepara.py                impronte CSP e www/index.html per l'app
-android/                  progetto Android (Capacitor 8) + SDK PairWood in android/pairwood-sdk
-icona/, genera-icone.js   simbolo, icone e schermata di avvio
-prove/                    prove automatiche (Playwright)
-guida/                    guida e tutorial in PDF, schermate e dati d'esempio
-lingua/                   traduzione inglese (lingua/inglese.txt) e lo script che la mette nella pagina
-rilasci/                  istruzioni per pubblicare una versione e il file per gli aggiornamenti
+sorgente-DoctorCar.html   the page (HTML, style and script in one file)
+piattaforma-android.js    the Android layer (files, vibration, PairWood sync, updates)
+prepara.py                CSP hashes and www/index.html for the app
+android/                  Android project (Capacitor 8) + PairWood SDK in android/pairwood-sdk
+icona/, genera-icone.js   symbol, icons and splash screen
+prove/                    automated tests (Playwright)
+guida/                    user guide and tutorials in PDF, screenshots and sample data
+lingua/                   English translation (lingua/inglese.txt) and the script that puts it into the page
+rilasci/                  how to publish a version, and the file used by the updater
 ```
+The code and its comments are in Italian; folder names too (`guida` = guide, `prove` = tests, `lingua` = language, `rilasci` = releases, `icona` = icon).
 
-## Compilare
+## Build
 ```
 npm install
 python3 prepara.py
 npx cap sync android
 cd android && ./gradlew assembleRelease
 ```
-Per l'APK firmato serve la chiave di firma, che **non** è in questo repository: senza, Gradle produce un APK non firmato da provare in proprio. Dettagli, regole e prove in [`SVILUPPO.md`](SVILUPPO.md) e [`prove/LEGGIMI-PROVE.md`](prove/LEGGIMI-PROVE.md).
+A signed APK needs the signing key, which is **not** in this repository: without it Gradle produces an unsigned APK for your own testing. Details in [`DEVELOPMENT.md`](DEVELOPMENT.md).
 
-## Sostieni DoctorCar
+## Support DoctorCar
 
-DoctorCar è gratis, senza pubblicità e senza raccogliere dati. Se ti è utile puoi offrire un caffè: **[ko-fi.com/crslabs](https://ko-fi.com/crslabs)**.
+DoctorCar is free, with no ads and no data collection. If you find it useful you can buy me a coffee: **[ko-fi.com/crslabs](https://ko-fi.com/crslabs)**.
 
-## Contatti
+## Contact
 
-Problemi, idee, domande: **crslabs.info@gmail.com**, oppure «Segnala un problema o un'idea» dentro l'app.
+Problems, ideas, questions: **crslabs.info@gmail.com**, or «Report a problem or an idea» inside the app.
 
-## Licenza
+## Licence
 
-© 2026 CrsLabs. DoctorCar è software libero: puoi usarlo, studiarlo, modificarlo e ridistribuirlo secondo i termini della **GNU General Public License versione 3 o successiva** (testo completo in [`LICENSE`](LICENSE)). È distribuito nella speranza che sia utile, ma **senza alcuna garanzia**.
+© 2026 CrsLabs. DoctorCar is free software: you can use, study, modify and redistribute it under the terms of the **GNU General Public License version 3 or later** (full text in [`LICENSE`](LICENSE)). It is distributed in the hope that it will be useful, but **without any warranty**.
 
-Componenti di terzi: [Capacitor](https://capacitorjs.com) (licenza MIT). Il motore di sincronizzazione PairWood è di CrsLabs e qui è incluso già compilato in `android/pairwood-sdk`.
+Third-party components: [Capacitor](https://capacitorjs.com) (MIT licence). The PairWood sync engine belongs to CrsLabs and is included here precompiled in `android/pairwood-sdk`.
