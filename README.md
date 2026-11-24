@@ -5,7 +5,7 @@
 <h1 align="center">DoctorCar</h1>
 <p align="center"><b>Your car's maintenance log, even without internet.</b></p>
 
-<p align="center">Android 10+ · v2.4.6 · English and Italian · Free and open source (GPL-3.0)</p>
+<p align="center">Android 10+ · v2.4.7 · English and Italian · Free and open source (GPL-3.0)</p>
 
 ---
 

@@ -209,6 +209,7 @@
       // ======================================================================
       const K_SINC = 'doctorcar_sinc', K_STATO = 'doctorcar_sinc_stato';
       const CARTELLA = 'auto', PREFISSO = 'doctorcar-', ESTENSIONE = '.dcsync';
+      const PORTA_DOCTORCAR = 47813;   // una porta per app: DoctorWood 47811, BothWise 47812, DoctorCar 47813 (sullo stesso telefono non si pestano i piedi)
       const ALFABETO = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';   // senza I, L, O, U: non si confondono
       const ITERAZIONI = 600000;
       const sinc = () => { const c = leggiJ(K_SINC, null); return c && c.v === 1 && c.chiave && c.chiave.iv ? c : null; };
@@ -283,7 +284,7 @@
       function avvia() {
         if (!pronto) {
           const c = sinc();
-          pronto = pw('avvia', { cartelle: [CARTELLA], nome: (c && c.nome) || 'DoctorCar', minutiPeriodico: 30 })
+          pronto = pw('avvia', { cartelle: [CARTELLA], nome: (c && c.nome) || 'DoctorCar', minutiPeriodico: 30, porta: PORTA_DOCTORCAR })
             .then(st => { if (!avvia.ascolto) { avvia.ascolto = true; try { CAP.addListener('PairWood', 'evento', evento); } catch (_) {} } return st; })
             .catch(e => { pronto = null; throw e; });
         }

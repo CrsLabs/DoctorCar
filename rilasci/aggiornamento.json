@@ -1,8 +1,8 @@
 {
  "pacchetto": "it.doctorcar.app",
- "versionCode": 27,
- "versione": "2.4.6",
- "apk": "DoctorCar-2.4.6.apk",
- "sha256": "57faa2fd386d9980045adb9c38dc9f57c615f69fbd2ae8f971897ab033c99a6c",
- "novita": "Le notifiche compaiono in basso e si chiudono strisciandole con il dito."
+ "versionCode": 28,
+ "versione": "2.4.7",
+ "apk": "DoctorCar-2.4.7.apk",
+ "sha256": "f0aaaafd0fdf41a46665dc90f32a4edb86d63fc32d9bba0c7d6b5d9fd98f23ce",
+ "novita": "Finestre e menù che si chiudono senza scatti; alla nuova auto chiede se l'assicurazione è annuale o semestrale."
 }

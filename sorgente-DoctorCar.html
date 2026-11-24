@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- App completamente offline: nessuna risorsa esterna. Questa regola impedisce qualsiasi connessione di rete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-gH2fmHIYDjOTKwxBqACFQCiqfdB5K7SyVGQOO7BTzXs='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-1OxkYjZ1JOXf9K8QdhKvxCPnXp81XOe9aeEhaE+neV8='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="google" content="notranslate">
   <meta name="theme-color" content="#1e293b">
@@ -1059,6 +1059,7 @@ html.con-tastiera #barraNav { display: none; }
   "Android sta bloccando le notifiche di DoctorCar: senza, gli avvisi non arrivano.": "Android is blocking DoctorCar's notifications: without them, reminders don't arrive.",
   "Animazioni": "Animations",
   "Anno": "Year",
+  "Annuale": "Annual",
   "Annulla": "Cancel",
   "App Android costruita con Capacitor (licenza MIT) e con il motore di sincronizzazione PairWood. Icone disegnate per DoctorCar.": "Android app built with Capacitor (MIT licence) and the PairWood sync engine. Icons designed for DoctorCar.",
   "Apri": "Open",
@@ -1070,6 +1071,8 @@ html.con-tastiera #barraNav { display: none; }
   "Aspetto": "Appearance",
   "Assicurazione": "Insurance",
   "Assicurazione scaduta: *": "Insurance expired: *",
+  "Assicurazione: 12 se è annuale, 6 se è semestrale.": "Insurance: 12 if it is annual, 6 if it is six-monthly.",
+  "Assicurazione: annuale o semestrale?": "Insurance: annual or six-monthly?",
   "Assicurazione: costo (€)": "Insurance: cost (€)",
   "Assicurazione: scade il": "Insurance: expires on",
   "Attenzione: i km scritti sono molto meno degli ultimi segnati (# km). Controlli?": "Careful: the mileage you wrote is much lower than the last one recorded (# km). Check?",
@@ -1609,6 +1612,7 @@ html.con-tastiera #barraNav { display: none; }
   "Oggi: *": "Today: *",
   "Ogni quanti km": "Every how many km",
   "Ogni quanti mesi": "Every how many months",
+  "Ogni quanto la rinnovi: la prossima scadenza si calcola da qui.": "How often you renew it: the next due date is worked out from this.",
   "Olio motore": "Engine oil",
   "Olio, lampadine, liquido lavavetri, spazzole… segna quello che tieni in garage per ogni auto: ti avviso quando sta per finire.": "Oil, bulbs, screen wash, wiper blades… record what you keep in the garage for each car: I'll tell you when it's running out.",
   "Olio, lampadine, spazzole… quello che tieni in garage": "Oil, bulbs, wiper blades… what you keep in the garage",
@@ -1812,6 +1816,7 @@ html.con-tastiera #barraNav { display: none; }
   "Segnato. Quello da sistemare è nella lista per il meccanico.": "Saved. What needs fixing is on the mechanic's list.",
   "Sei ancora coperto fino al *": "You're still covered until *",
   "Sei qui": "You are here",
+  "Semestrale": "Six-monthly",
   "Senza data": "No date",
   "Senza foto": "Without photos",
   "Senza il permesso di installare app, DoctorCar non può aggiornarsi da solo. Puoi riprovare quando vuoi.": "Without permission to install apps, DoctorCar can't update itself. You can try again whenever you like.",
@@ -1946,6 +1951,7 @@ html.con-tastiera #barraNav { display: none; }
   "aggiungi auto moto furgone macchina": "add car motorbike van vehicle",
   "al mese.": "a month.",
   "altro dispositivo": "other device",
+  "annuale": "annual",
   "aspetto colori notte buio": "appearance colours night dark theme",
   "backup drive settimanale cartella": "backup drive weekly folder automatic",
   "backup esporta importa salva ripristina password": "backup export import save restore password",
@@ -2052,6 +2058,7 @@ html.con-tastiera #barraNav { display: none; }
   "scaduta ieri (# §). Se sì, lo segno in un attimo.": "overdue since yesterday (# §). If so, I'll record it in a moment.",
   "scaduta il *": "overdue since *",
   "scritte grandi caratteri font leggere": "text big letters font read size",
+  "semestrale": "six-monthly",
   "solo oggi": "today only",
   "spenti": "off",
   "spese #": "expenses #",
@@ -2469,7 +2476,13 @@ html.con-tastiera #barraNav { display: none; }
     }
     function carica() { D = pulisciTutto(leggiJ(K_DATI, null)); nomiCambiati(); }
     let quandoSalvato = 0;
-    function salvaDati() {
+    // Mentre una finestra si chiude, il lavoro pesante (salvare, ridisegnare le liste) aspetta la fine dell'animazione: così la chiusura scorre senza scatti.
+    let chiusureInCorso = 0; const dopoChiusura = new Map();
+    function svuotaDopoChiusura(forza) { if (chiusureInCorso > 0 && !forza) return; const l = [...dopoChiusura.values()]; dopoChiusura.clear(); l.forEach(f => { try { f(); } catch (_) {} }); }
+    function salvaDati() { if (chiusureInCorso > 0) { dopoChiusura.set('salva', salvaDatiOra); return true; } return salvaDatiOra(); }
+    document.addEventListener('visibilitychange', () => { if (document.hidden) svuotaDopoChiusura(true); });
+    window.addEventListener('pagehide', () => svuotaDopoChiusura(true));
+    function salvaDatiOra() {
       nomiCambiati();
       if (!scriviJ(K_DATI, D)) { avviso('Non riesco a salvare: lo spazio del browser è pieno. Esporta una copia di sicurezza.', 'errore'); return false; }
       quandoSalvato = Date.now();
@@ -2759,9 +2772,14 @@ html.con-tastiera #barraNav { display: none; }
       const fine = () => { if (pila.includes(id)) return; f.classList.add('hidden'); if (!pila.length) document.body.style.overflow = ''; };
       if (animazioniAttive() && f.animate && f.firstElementChild) {
         const largo = window.innerWidth >= 640;
+        let contata = true; chiusureInCorso++;
+        const finita = () => { if (!contata) return; contata = false; chiusureInCorso = Math.max(0, chiusureInCorso - 1); svuotaDopoChiusura(); };
+        // i primi fotogrammi dell'uscita sono già disegnati (e la finestra scende da sola, senza chiedere altro alla pagina): ora si può fare il lavoro pesante
+        requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(finita, 60)));
+        setTimeout(finita, (largo ? 420 : 480) + 250);   // rete di sicurezza: l'attesa non resta mai bloccata
         f.firstElementChild.animate(largo ? [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(14px) scale(0.96)' }] : [{ transform: 'none' }, { transform: 'translateY(100%)' }],
           { duration: largo ? 420 : 480, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)', fill: 'forwards' });
-        f.animate([{ opacity: 1 }, { opacity: 0 }], { duration: largo ? 420 : 480, fill: 'forwards' }).onfinish = () => { if (pila.includes(id)) return; fine(); f.getAnimations({ subtree: true }).forEach(a => a.cancel()); };
+        f.animate([{ opacity: 1 }, { opacity: 0 }], { duration: largo ? 420 : 480, fill: 'forwards' }).onfinish = () => { if (!pila.includes(id)) { fine(); f.getAnimations({ subtree: true }).forEach(a => a.cancel()); } finita(); };
       } else fine();
     }
     // tocco sullo sfondo intorno a una finestra = Indietro (non per domande e attese)
@@ -2893,7 +2911,8 @@ html.con-tastiera #barraNav { display: none; }
     function scegliAnno(a) { annoSpese = a; disegnaSpese(); }
 
     // ---------- disegno ----------
-    function disegna() {
+    function disegna() { if (chiusureInCorso > 0) { dopoChiusura.set('disegna', disegnaOra); return; } disegnaOra(); }
+    function disegnaOra() {
       const vs = veicoli();
       for (const k of Object.keys(filtro)) if (filtro[k] && !veicolo(filtro[k])) filtro[k] = '';
       document.querySelectorAll('.chips[data-filtro]').forEach(el => {
@@ -3509,6 +3528,7 @@ html.con-tastiera #barraNav { display: none; }
           ...(v ? [] : [
             { k: 'kmIniziali', etichetta: 'Km attuali', tipo: 'numero', valore: '', max: 3e6, aiuto: 'Quelli che vedi adesso sul contachilometri.' },
             { k: 'n_scad', tipo: 'nota', testo: 'Le cose più importanti, adesso: così DoctorCar ti avvisa da subito e non devi aggiungere niente dopo. Quello che non sai, lascialo vuoto: lo completi quando vuoi.' },
+            { k: 'assicurazioneDurata', etichetta: 'Assicurazione: annuale o semestrale?', tipo: 'scelta', obbligo: 1, valore: '12', opzioni: [['12', 'Annuale'], ['6', 'Semestrale']], aiuto: 'Ogni quanto la rinnovi: la prossima scadenza si calcola da qui.' },
             { k: 'assicurazione', etichetta: 'Assicurazione: scade il', tipo: 'data', valore: '', mezzo: 1 },
             { k: 'assicurazioneCosto', etichetta: 'Assicurazione: costo (€)', tipo: 'numero', valore: '', max: 1e5, mezzo: 1 },
             { k: 'bollo', etichetta: 'Bollo: scade il', tipo: 'data', valore: '', mezzo: 1, aiuto: 'Vuoto: lo calcolo dal mese di immatricolazione.' },
@@ -3534,7 +3554,7 @@ html.con-tastiera #barraNav { display: none; }
               const voce = VOCE[k], iv = intervalloVoce(k, r.tipo, r.alimentazione);
               const sc = { id: nuovoId(), veicolo: id, voce: k, nome: voce.n, ogniKm: iv.km || null, ogniMesi: iv.mesi || null, primaMesi: voce.primaMesi || null };
               // i dati importanti scritti adesso: la scadenza nasce già completa
-              if (k === 'assicurazione') { if (x.assicurazione) sc.prossimaData = x.assicurazione; if (x.assicurazioneCosto != null) sc.costo = x.assicurazioneCosto; }
+              if (k === 'assicurazione') { sc.ogniMesi = String(x.assicurazioneDurata) === '6' ? 6 : 12; if (x.assicurazione) sc.prossimaData = x.assicurazione; if (x.assicurazioneCosto != null) sc.costo = x.assicurazioneCosto; }
               if (k === 'bollo') { if (x.bollo) sc.prossimaData = x.bollo; else if (x.immatricolazione) { sc.prossimaData = bolloProposto(x.immatricolazione); sc.note = 'Data proposta dal mese di immatricolazione (si paga entro la fine di quel mese): controlla sul sito della tua regione.'; } if (x.bolloCosto != null) sc.costo = x.bolloCosto; }
               if (k === 'revisione') { if (x.revisione) sc.ultimaData = x.revisione; if (x.revisioneCosto != null) sc.costo = x.revisioneCosto; }
               if (k === 'tagliando' && (x.tagliandoData || x.tagliandoKm != null)) { sc.ultimaData = x.tagliandoData || ''; sc.ultimiKm = x.tagliandoKm; }
@@ -3745,7 +3765,7 @@ html.con-tastiera #barraNav { display: none; }
           { k: 'voce', etichetta: 'Che cosa', tipo: 'scelta', obbligo: 1, valore: s ? s.voce : 'tagliando', opzioni: vociPer(v && v.alimentazione).map(x => [x.k, x.n]), cambia: 'cambiaVoceScadenza()' },
           { k: 'nome', etichetta: 'Nome da mostrare', valore: s ? s.nome : '', max: 60, segnaposto: 'come la voce' },
           { k: 'ogniKm', etichetta: 'Ogni quanti km', tipo: 'numero', mezzo: 1, valore: s ? s.ogniKm : (VOCE.tagliando.km || ''), max: 1e6 },
-          { k: 'ogniMesi', etichetta: 'Ogni quanti mesi', tipo: 'numero', mezzo: 1, valore: s ? s.ogniMesi : (VOCE.tagliando.mesi || ''), max: 600 },
+          { k: 'ogniMesi', etichetta: 'Ogni quanti mesi', tipo: 'numero', mezzo: 1, valore: s ? s.ogniMesi : (VOCE.tagliando.mesi || ''), max: 600, aiuto: 'Assicurazione: 12 se è annuale, 6 se è semestrale.' },
           { k: 'n1', tipo: 'nota', testo: 'L\'ultima volta (se l\'hai già segnata come intervento non serve):' },
           { k: 'ultimaData', etichetta: 'Ultima volta il', tipo: 'data', mezzo: 1, valore: s ? s.ultimaData : '' },
           { k: 'ultimiKm', etichetta: 'A quanti km', tipo: 'numero', mezzo: 1, valore: s ? s.ultimiKm : '', max: 3e6 },
@@ -3770,7 +3790,7 @@ html.con-tastiera #barraNav { display: none; }
     function apriScadenza(id) {
       const s = D.scadenze[id]; if (!s || s.del) return;
       const st = statoScadenza(s), v = veicolo(s.veicolo);
-      const ogni = [s.ogniKm ? 'ogni ' + km(s.ogniKm) : '', s.ogniMesi ? 'ogni ' + (s.ogniMesi % 12 === 0 ? (s.ogniMesi / 12 === 1 ? 'anno' : s.ogniMesi / 12 + ' anni') : s.ogniMesi + ' mesi') : ''].filter(Boolean).join(' o ');
+      const ogni = s.voce === 'assicurazione' && (s.ogniMesi === 6 || s.ogniMesi === 12) && !s.ogniKm ? (s.ogniMesi === 6 ? 'semestrale' : 'annuale') : [s.ogniKm ? 'ogni ' + km(s.ogniKm) : '', s.ogniMesi ? 'ogni ' + (s.ogniMesi % 12 === 0 ? (s.ogniMesi / 12 === 1 ? 'anno' : s.ogniMesi / 12 + ' anni') : s.ogniMesi + ' mesi') : ''].filter(Boolean).join(' o ');
       const ultima = st.u ? [st.u.data ? dataIt(st.u.data) : '', st.u.km != null ? km(st.u.km) : ''].filter(Boolean).join(' · ') + (st.u.da === 'intervento' ? ' (dal registro)' : '') : (st.stimata ? 'non segnata: conto dall\'immatricolazione' : 'non segnata');
       $('schedaTitolo').textContent = s.nome || nomeVoce(s.voce);
       $('schedaCorpo').innerHTML = `

@@ -14,7 +14,7 @@ const esito = (n, c, i = '') => { if (c) ok++; else ko++; console.log((c ? '  âœ
   await p.evaluate(() => { DC.dati.appunti = {}; DC.dati.scorte = {}; DC.salvaDati(); DC.disegna(); });   // si parte senza quelli d'esempio
   const C = (n, ...a) => p.evaluate(([n, a]) => DC.COMANDI[n](...a), [n, a]);
   const aperta = id => p.evaluate(id => { const f = document.getElementById(id); return !!f && !f.classList.contains('hidden') && f.getAttribute('aria-hidden') !== 'true'; }, id);
-  const salva = async () => { await p.click('#moduloSalva'); await p.waitForTimeout(500); };
+  const salva = async () => { await p.click('#moduloSalva'); await p.waitForTimeout(700); };
   const scegli = (sel, v) => p.evaluate(([sel, v]) => { const e = document.querySelector(sel); if (e) { e.value = v; e.dispatchEvent(new Event('change', { bubbles: true })); } }, [sel, v]);
   const vivi = c => p.evaluate(c => DC.vivi(c), c);
 
