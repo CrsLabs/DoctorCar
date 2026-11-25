@@ -992,6 +992,7 @@ public class DoctorCarPlugin extends Plugin {
         boolean en = Boolean.TRUE.equals(call.getBoolean("inglese", false));
         boolean prima = Testi.inglese();
         Testi.imposta(getContext(), en);
+        pairwood.sdk.LinguaPairWood.imposta(getContext(), en);   // anche le notifiche della libreria di sincronizzazione
         if (prima != en) { try { Promemoria.creaCanale(getContext()); } catch (Exception ignorata) { } }
         call.resolve();
     }
