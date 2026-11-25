@@ -1,8 +1,8 @@
 {
  "pacchetto": "it.doctorcar.app",
- "versionCode": 28,
- "versione": "2.4.7",
- "apk": "DoctorCar-2.4.7.apk",
- "sha256": "f0aaaafd0fdf41a46665dc90f32a4edb86d63fc32d9bba0c7d6b5d9fd98f23ce",
- "novita": "Finestre e menù che si chiudono senza scatti; alla nuova auto chiede se l'assicurazione è annuale o semestrale."
+ "versionCode": 30,
+ "versione": "2.4.9",
+ "apk": "DoctorCar-2.4.9.apk",
+ "sha256": "994361183166b58978813666a0786ee921c70739ae22bb37576b2396161ec78a",
+ "novita": "Motore di sincronizzazione aggiornato: nomi dei dispositivi sempre aggiornati, controlli di sicurezza più severi sui file ricevuti, correzioni."
 }

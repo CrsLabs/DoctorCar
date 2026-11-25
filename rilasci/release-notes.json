@@ -1,4 +1,5 @@
 {
+ "v2.4.9": "Sync engine update: device names are kept up to date, stricter safety checks on received files, and fixes.",
  "v2.4.7": "Windows and menus close smoothly. When you add a vehicle it asks whether the insurance is annual or six-monthly. DoctorCar now has its own sync port, so it never clashes with DoctorWood or BothWise on the same phone.",
  "v2.4.6": "Notifications now appear at the bottom of the screen, above the bar, and close with a swipe.",
  "v2.4.5": "Corrected English sentences (updates and due-date reminders).",
