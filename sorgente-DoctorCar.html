@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <!-- App completamente offline: nessuna risorsa esterna. Questa regola impedisce qualsiasi connessione di rete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-X7Tbk2DRV5X8b9EXXtC0NpY338V9CbsjM64oGtKni5o='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-voymjZw7CaZRfdyvrygxI0NNUisY76uHYcP5nZLsTic=' 'sha256-qDnNkoH0OZmikQUcb/Sj57/wnxZW6qXse2I9GTdTV6w='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="google" content="notranslate">
   <meta name="theme-color" content="#1e293b">
@@ -908,7 +908,7 @@ html.con-tastiera #barraNav { display: none; }
     // cose diverse si possono unire senza perdite (vince la modifica più recente, record per record).
     // Le cancellazioni restano come «lapidi» (del: true), perché anche gli altri dispositivi le ricevano.
     // ======================================================================
-    const VERSIONE = '2.4.8';
+    const VERSIONE = '2.4.9';
     const $ = id => document.getElementById(id);
     const S = window.localStorage;
     const K_DATI = 'doctorcar_dati', K_DISP = 'doctorcar_dispositivo', K_COPIA = 'doctorcar_ultima_copia';
